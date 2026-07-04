@@ -111,6 +111,27 @@ curl http://localhost:3000/api/contact -H "x-admin-token: <your token>"
 
 Copy `.env.example` to `.env` and set a strong `ADMIN_TOKEN`.
 
+Locally, submissions land in `data/iwm.db` with zero setup. In production
+(Vercel or any serverless host) set `TURSO_DATABASE_URL` + `TURSO_AUTH_TOKEN`
+(free DB at [turso.tech](https://turso.tech)) and the same code persists to
+Turso instead — see `.env.example`.
+
+## Deploying (Vercel + GoDaddy domain)
+
+1. Push this repo to GitHub.
+2. [vercel.com](https://vercel.com) → sign in with GitHub → **Add New → Project**
+   → import the repo → Deploy (Next.js needs no config).
+3. Create the production DB: `turso db create iwm-quant`, then add
+   `TURSO_DATABASE_URL`, `TURSO_AUTH_TOKEN` and `ADMIN_TOKEN` in
+   Vercel → Project → **Settings → Environment Variables** → redeploy.
+4. Vercel → Project → **Settings → Domains** → add `iwmquant.com` and
+   `www.iwmquant.com`.
+5. GoDaddy → your domain → **DNS → Manage DNS**:
+   - `A` record, name `@`, value `76.76.21.21`
+   - `CNAME` record, name `www`, value `cname.vercel-dns.com`
+   - remove any conflicting old `A`/`CNAME` records (e.g. Lovable's)
+6. Wait for DNS to propagate; Vercel issues SSL automatically.
+
 ## Editing content
 
 All copy lives in [lib/content.ts](lib/content.ts) — the about text, culture
