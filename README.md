@@ -3,135 +3,100 @@
 > **I Wealth Management Quant**
 > *Markets aren't random. They're just encrypted. We hold the key.*
 
-The marketing site for IWM Quant — a quantitative trading firm. This repo is the
-next iteration of [iwmquant.com](https://iwmquant.com): keep the terminal-hacker
-soul, make it feel like a **live trading desk** instead of a static page.
+The official website for **IWM Quant** — a systematic trading and research firm.
+Built with Next.js (server-rendered, SEO-friendly), a terminal-inspired dark
+aesthetic, and a lightweight backend that stores contact enquiries in SQLite.
 
 ---
 
-## Table of contents
-- [Current state](#current-state)
-- [Vision](#vision)
-- [Design language](#design-language)
-- [Pages](#pages)
-- [Feature ideas](#feature-ideas)
-- [Tech stack](#tech-stack)
-- [Roadmap](#roadmap)
-- [Getting started](#getting-started)
+## Highlights
 
----
-
-## Current state
-
-The live site (built with Lovable) is a React + Vite + Tailwind + Supabase SPA.
-It nails the **voice and the dark aesthetic**, but the experience is mostly
-static copy over animated gradients — there is no *live market* feel, and as a
-client-only SPA it's invisible to crawlers and link previews.
-
-**What's live today**
-
-| Route | Purpose | Sample copy |
-|-------|---------|-------------|
-| `/`         | Home / hero | "Markets aren't random. / They're just encrypted. / We hold the key." · "Detect. Decide. Dominate" |
-| `/lab`      | Active experiments | Neural Architecture Search — *accuracy 94.7% · latency 0.3ms* |
-| `/research` | Research gallery | "Quantum Pattern Recognition in Market Anomalies" |
-| `/contact`  | Contact form (Supabase) | "Interested in decoding signals hidden in noise?" |
-
----
-
-## Vision
-
-The brand metaphor is **"the market is encrypted; we decode it."** Every design
-choice should reinforce that: motion, live data, and *decrypt/reveal* moments.
-The site should read like the front-end of a real trading system — a terminal
-you're allowed to look at, not a brochure.
-
-**Three principles**
-1. **Alive, not static** — something is always ticking, streaming, or updating.
-2. **Credible, not just cool** — real (or realistic) numbers, research, and disclosures build trust.
-3. **Fast and calm** — heavy vibe, light footprint; motion respects the user.
-
----
-
-## Design language
-
-- **Type:** JetBrains Mono everywhere (monospace = terminal).
-- **Palette:** near-black background; terminal-green primary; cyan / blue / yellow accents; green/red for up/down ticks.
-- **Texture:** blurred gradient orbs, glow-pulse, "neural drift" rings, scanlines, subtle grid.
-- **Signature move:** the **decrypt reveal** — text resolves from scrambled hex/glyphs into legible copy.
-- **Motion budget:** tasteful; always honor `prefers-reduced-motion`.
-
----
+- **Landing "boot" animation** — a one-per-session terminal boot sequence that
+  authenticates the visitor, decrypts the feed, scramble-resolves the logo, and
+  splits open like a vault to reveal the site (click / Esc to skip).
+- **Decrypt-reveal headlines** — cipher glyphs resolve into copy on every page.
+- **Live-typing signal terminal** — the hero's `iwm://signal-feed` window types
+  a realistic signal/risk/execution loop.
+- **Market ticker strip** — marquee of index/FX/commodity quotes under the nav.
+- **Count-up stats, self-drawing equity curve & sparklines** — all charts draw
+  themselves on scroll.
+- **Lab monitor cards** — experiments with live status LEDs (`RUNNING`,
+  `CALIBRATING`, `BACKTESTING`, `PAUSED`), sparklines and metrics.
+- **Research gallery** — featured paper + abstract cards.
+- **Contact backend** — validated form → API route → SQLite, plus a
+  token-protected admin endpoint to read submissions.
+- Fully responsive, respects `prefers-reduced-motion`, honest risk disclaimers.
 
 ## Pages
 
-- **Home** — live-typing terminal streaming signal output, decrypt-reveal hero, tape/order-book background, count-up stats.
-- **Lab** — each experiment as a *live monitor* card: sparkline, status LED (`RUNNING`/`PAUSED`), moving metric gauges.
-- **Research** — cards → full detail view with abstract, LaTeX-style math, charts, downloadable PDF.
-- **Approach** *(new)* — how the firm trades (systematic, market-neutral, etc.), the edge, the process.
-- **Team** *(new)* — founders and quants; credibility.
-- **Contact** — keep the Supabase form; add "Request access" / investor CTA.
+| Route | Purpose |
+|-------|---------|
+| `/` | Hero (decrypt reveal + live terminal), stats band, pillars, equity curve, CTA |
+| `/approach` | Pipeline (Data → Signal → Risk → Execution) + operating principles |
+| `/lab` | Active experiments as live monitor cards |
+| `/research` | Featured + gallery of research abstracts |
+| `/contact` | Contact form (stored in SQLite) + head office details & desk hours |
 
----
-
-## Feature ideas
-
-**Hero / motion**
-- [ ] Live-typing terminal feed (`[09:31:04] IWM regime: MEAN-REVERT · conf 0.82`)
-- [ ] Decrypt-reveal headline (scrambled → resolved)
-- [ ] Candlestick / order-book depth animation behind the fold
-
-**Live data**
-- [ ] Top ticker strip: IWM + Russell 2000, price/Δ%, flash on tick
-- [ ] Self-drawing equity curve + Sharpe sparkline on scroll
-- [ ] Count-up stat tiles (signals/day, backtests run, uptime)
-
-**Interaction**
-- [ ] ⌘K command palette that navigates the site like a trading terminal
-- [ ] Cursor spotlight / grid reveal on dark sections
-- [ ] Optional "market heartbeat" ping on terminal hover
-
-**Trust & conversion**
-- [ ] Approach + Team pages
-- [ ] Performance / methodology disclosures
-- [ ] Clear CTA (Request access / Investor login)
-
-**Craft**
-- [ ] SSR/prerender for SEO + real OG link previews
-- [ ] Fix OG/Twitter meta (still says "Lovable Generated Project")
-- [ ] `prefers-reduced-motion` + performance pass
-
----
+**Head office:** 1502, One Lodha Place, Lower Parel, Mumbai, Maharashtra 400013, India.
 
 ## Tech stack
 
-Current: **React · Vite · TypeScript · Tailwind · shadcn/Radix · Supabase**.
+- **Next.js 15** (App Router, TypeScript, static prerendering for all pages)
+- **Tailwind CSS v4** with custom design tokens (terminal green / cyan / amber on near-black)
+- **Fonts:** JetBrains Mono (headings, data) + Inter (body)
+- **Backend:** Next.js route handler + **`node:sqlite`** (Node 24 built-in — zero native deps)
 
-Recommended for the rebuild: migrate to **Astro** or **Next.js** for SSR/prerender
-(SEO + link previews), keep Tailwind + shadcn, keep Supabase for the contact form
-and research/lab content. Use a lightweight charting lib (e.g. `lightweight-charts`
-or `visx`) for the market visuals.
+## Project structure
 
----
-
-## Roadmap
-
-1. **Foundation** — scaffold, design tokens, SSR, fix meta/OG.
-2. **Hero** — decrypt reveal + live terminal + ticker.
-3. **Lab & Research** — live monitor cards, research detail pages.
-4. **Trust** — Approach + Team + disclosures.
-5. **Polish** — ⌘K, reduced-motion, Lighthouse pass.
-
----
+```
+app/                      # routes only — pages stay thin
+  page.tsx                # home (composes section components)
+  approach/ lab/ research/ contact/
+  api/contact/route.ts    # POST: store enquiry · GET: admin list
+  layout.tsx  globals.css  not-found.tsx
+components/
+  layout/                 # Nav, Footer, LandingIntro (boot animation)
+  ui/                     # primitives: Reveal, DecryptText, CountUp, SectionHeading, GlowOrbs
+  market/                 # data-viz: Ticker, Terminal, Sparkline, EquityCurve
+  sections/               # page blocks: home/, lab/, research/, contact/
+lib/
+  content.ts              # all site copy & data (address, stats, experiments, papers)
+  db.ts                   # SQLite storage layer
+data/                     # iwm.db (created at runtime, gitignored)
+```
 
 ## Getting started
 
+Requires **Node.js ≥ 22.5** (uses the built-in `node:sqlite`).
+
 ```bash
-# once scaffolded
 npm install
-npm run dev      # local dev server
+npm run dev      # http://localhost:3000
 npm run build    # production build
+npm run start    # serve production build
 ```
+
+## Contact backend
+
+Submissions are stored in `data/iwm.db` (`contacts` table).
+
+```bash
+# submit (what the form does)
+curl -X POST http://localhost:3000/api/contact \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Ada","email":"ada@fund.com","message":"Hello"}'
+
+# read submissions (admin) — set ADMIN_TOKEN in .env first
+curl http://localhost:3000/api/contact -H "x-admin-token: <your token>"
+```
+
+Copy `.env.example` to `.env` and set a strong `ADMIN_TOKEN`.
+
+## Editing content
+
+All copy lives in [lib/content.ts](lib/content.ts) — ticker symbols, stats,
+lab experiments, research abstracts, process steps, principles and the office
+address. Edit that one file to update the site.
 
 ---
 
