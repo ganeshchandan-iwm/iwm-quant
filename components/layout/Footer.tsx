@@ -26,6 +26,7 @@ export default function Footer() {
             ["/approach", "Approach"],
             ["/lab", "Lab"],
             ["/research", "Research"],
+            ["/careers", "Careers"],
             ["/contact", "Contact"],
           ].map(([href, label]) => (
             <Link key={href} href={href} className="block text-mut hover:text-primary transition-colors">

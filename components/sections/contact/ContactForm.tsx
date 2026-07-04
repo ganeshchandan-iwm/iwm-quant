@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -10,6 +10,15 @@ const inputCls =
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  // Pre-fill the message when arriving from a careers role card (?role=...)
+  useEffect(() => {
+    const role = new URLSearchParams(window.location.search).get("role");
+    if (role && messageRef.current && !messageRef.current.value) {
+      messageRef.current.value = `I'd like to apply for the ${role} role.\n\n`;
+    }
+  }, []);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -96,6 +105,7 @@ export default function ContactForm() {
           message *
         </label>
         <textarea
+          ref={messageRef}
           id="message"
           name="message"
           required
@@ -115,7 +125,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="group w-full rounded border border-primary/60 bg-primary/10 px-6 py-3.5 font-mono text-primary transition-all duration-300 hover:bg-primary hover:text-bg hover:shadow-xl hover:shadow-primary/25 disabled:cursor-not-allowed disabled:opacity-50"
+        className="group w-full rounded border border-primary/60 bg-primary/10 px-6 py-3.5 font-mono text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-xl hover:shadow-primary/25 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {status === "sending" ? (
           <span>

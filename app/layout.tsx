@@ -3,7 +3,6 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import LandingIntro from "@/components/layout/LandingIntro";
-import Ticker from "@/components/market/Ticker";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -38,7 +37,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased min-h-screen flex flex-col">
         <LandingIntro />
         <Nav />
-        <Ticker />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

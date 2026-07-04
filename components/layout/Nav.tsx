@@ -9,6 +9,7 @@ const LINKS = [
   { href: "/approach", label: "approach" },
   { href: "/lab", label: "lab" },
   { href: "/research", label: "research" },
+  { href: "/careers", label: "careers" },
   { href: "/contact", label: "contact" },
 ];
 
@@ -53,10 +54,10 @@ export default function Nav() {
             );
           })}
           <Link
-            href="/contact"
-            className="ml-3 rounded border border-primary/50 px-4 py-1.5 text-primary transition-all duration-300 hover:bg-primary hover:text-bg hover:shadow-lg hover:shadow-primary/25"
+            href="/careers"
+            className="ml-3 rounded border border-primary/50 px-4 py-1.5 text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/25"
           >
-            request access
+            join us
           </Link>
         </div>
 

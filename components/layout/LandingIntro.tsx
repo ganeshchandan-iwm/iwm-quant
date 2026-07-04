@@ -114,11 +114,11 @@ export default function LandingIntro() {
     >
       {/* two vault halves */}
       <div
-        className="absolute inset-x-0 top-0 h-1/2 bg-bg border-b border-primary/30 transition-transform duration-700 ease-in-out"
+        className="absolute inset-x-0 top-0 h-1/2 bg-ink border-b border-sky/40 transition-transform duration-700 ease-in-out"
         style={{ transform: splitting ? "translateY(-100%)" : "translateY(0)" }}
       />
       <div
-        className="absolute inset-x-0 bottom-0 h-1/2 bg-bg border-t border-primary/30 transition-transform duration-700 ease-in-out"
+        className="absolute inset-x-0 bottom-0 h-1/2 bg-ink border-t border-sky/40 transition-transform duration-700 ease-in-out"
         style={{ transform: splitting ? "translateY(100%)" : "translateY(0)" }}
       />
 
@@ -127,34 +127,34 @@ export default function LandingIntro() {
         className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-6 transition-opacity duration-300"
         style={{ opacity: splitting ? 0 : 1 }}
       >
-        <p className="font-mono text-3xl md:text-5xl font-bold tracking-[0.2em] text-primary min-h-[1.2em]">
-          {logo || " "}
+        <p className="font-mono text-3xl md:text-5xl font-bold tracking-[0.2em] text-sky min-h-[1.2em]">
+          {logo || " "}
         </p>
 
-        <div className="w-full max-w-md font-mono text-xs md:text-sm text-primary/80 space-y-1.5 min-h-[7.5em]">
+        <div className="w-full max-w-md font-mono text-xs md:text-sm text-sky/80 space-y-1.5 min-h-[7.5em]">
           {BOOT_LINES.slice(0, lineCount).map((l, i) => (
-            <p key={i} className={i === BOOT_LINES.length - 1 ? "text-primary font-semibold" : ""}>
+            <p key={i} className={i === BOOT_LINES.length - 1 ? "text-sky font-semibold" : ""}>
               {l}
             </p>
           ))}
-          <span className="animate-blink text-primary">▌</span>
+          <span className="animate-blink text-sky">▌</span>
         </div>
 
         {/* progress bar */}
         <div className="w-full max-w-md">
-          <div className="h-1 w-full rounded bg-edge-soft overflow-hidden">
+          <div className="h-1 w-full rounded bg-ink-2 overflow-hidden">
             <div
-              className="h-full rounded bg-gradient-to-r from-primary-dim via-primary to-cyan transition-[width] duration-100"
+              className="h-full rounded bg-gradient-to-r from-primary via-sky to-cyan transition-[width] duration-100"
               style={{ width: `${progress}%` }}
             />
           </div>
-          <div className="mt-2 flex justify-between font-mono text-[10px] text-mut">
+          <div className="mt-2 flex justify-between font-mono text-[10px] text-sky/50">
             <span>decrypting…</span>
             <span>{Math.round(progress)}%</span>
           </div>
         </div>
 
-        <p className="font-mono text-[10px] text-mut/60">click anywhere to skip</p>
+        <p className="font-mono text-[10px] text-sky/40">click anywhere to skip</p>
       </div>
     </div>
   );

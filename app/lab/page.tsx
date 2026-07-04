@@ -28,8 +28,8 @@ export default function LabPage() {
           </h1>
           <Reveal delay={300}>
             <p className="mt-6 text-mut text-lg leading-relaxed">
-              Where hypotheses fight for survival. Fewer than 4% of ideas make it from this
-              board into production capital.
+              Where hypotheses fight for survival. Most ideas die on this board — and
+              that&apos;s exactly how it should be. What survives, trades.
             </p>
           </Reveal>
           <Reveal delay={450}>

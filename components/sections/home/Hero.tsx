@@ -13,8 +13,8 @@ export default function Hero() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8 py-20 md:py-28 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
         {/* copy */}
         <div className="space-y-7">
-          <p className="font-mono text-xs tracking-[0.35em] text-primary/80 uppercase">
-            {"// I Wealth Management Quant"}
+          <p className="font-mono text-xs tracking-[0.35em] text-primary uppercase">
+            {"// I Wealth Management Quant · Mumbai"}
           </p>
 
           <h1 className="font-mono font-bold tracking-tight leading-tight text-4xl md:text-6xl">
@@ -25,8 +25,9 @@ export default function Hero() {
 
           <Reveal delay={400}>
             <p className="text-mut text-lg leading-relaxed max-w-xl">
-              We are a systematic trading firm. We turn chaos into code, and code into
-              disciplined, risk-managed returns — one measured edge at a time.
+              We are a quantitative trading and research firm. We apply the scientific
+              method, serious engineering and a healthy love of games to one of the
+              hardest puzzles there is: financial markets.
             </p>
           </Reveal>
 
@@ -34,7 +35,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-4 font-mono">
               <Link
                 href="/approach"
-                className="group rounded border border-primary/60 bg-primary/10 px-6 py-3 text-primary transition-all duration-300 hover:bg-primary hover:text-bg hover:shadow-xl hover:shadow-primary/25"
+                className="group rounded border border-primary/60 bg-primary/10 px-6 py-3 text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-xl hover:shadow-primary/25"
               >
                 explore our approach{" "}
                 <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
@@ -42,22 +43,22 @@ export default function Hero() {
                 </span>
               </Link>
               <Link
-                href="/research"
+                href="/careers"
                 className="rounded border border-edge px-6 py-3 text-mut transition-colors duration-300 hover:border-cyan/50 hover:text-cyan"
               >
-                read the research
+                join the desk
               </Link>
             </div>
           </Reveal>
 
           <Reveal delay={800}>
-            <p className="font-mono text-sm text-primary/70 tracking-widest">
+            <p className="font-mono text-sm text-primary/80 tracking-widest">
               Detect. Decide. Dominate.
             </p>
           </Reveal>
         </div>
 
-        {/* live terminal */}
+        {/* research shell */}
         <Reveal delay={500}>
           <Terminal />
         </Reveal>

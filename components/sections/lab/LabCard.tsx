@@ -10,13 +10,13 @@ const STATUS_STYLES: Record<string, { dot: string; text: string }> = {
 
 type Experiment = (typeof LAB_EXPERIMENTS)[number];
 
-/** "Live monitor" card for a lab experiment: status LED, sparkline, metrics. */
+/** "Live monitor" card for a lab experiment: status LED, sparkline, focus tags. */
 export default function LabCard({ exp }: { exp: Experiment }) {
   const style = STATUS_STYLES[exp.status];
   const live = exp.status === "RUNNING";
 
   return (
-    <div className="group corner-frame h-full rounded-lg border border-edge bg-panel/80 overflow-hidden transition-all duration-500 hover:border-primary/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10">
+    <div className="group corner-frame h-full rounded-lg border border-edge bg-panel overflow-hidden transition-all duration-500 hover:border-primary/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10">
       {/* header */}
       <div className="flex items-center justify-between border-b border-edge-soft bg-panel-2/70 px-5 py-3">
         <span className="font-mono text-[11px] text-mut">{exp.id}</span>
@@ -43,14 +43,14 @@ export default function LabCard({ exp }: { exp: Experiment }) {
           stroke={live ? "var(--color-primary)" : "var(--color-cyan)"}
         />
         <p className="text-sm text-mut leading-relaxed">{exp.body}</p>
-        <div className="grid grid-cols-3 gap-2 border-t border-edge-soft pt-4">
-          {exp.metrics.map((m) => (
-            <div key={m.label}>
-              <p className="font-mono text-sm text-primary">{m.value}</p>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-mut">
-                {m.label}
-              </p>
-            </div>
+        <div className="flex flex-wrap gap-2 border-t border-edge-soft pt-4">
+          {exp.tags.map((t) => (
+            <span
+              key={t}
+              className="rounded-full border border-edge-soft bg-panel-2 px-2.5 py-1 font-mono text-[11px] text-mut group-hover:border-primary/30 transition-colors"
+            >
+              {t}
+            </span>
           ))}
         </div>
       </div>
