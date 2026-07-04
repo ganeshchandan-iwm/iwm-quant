@@ -40,6 +40,9 @@ lightweight backend that stores contact enquiries in SQLite.
   fabricated performance numbers or vanity stats.
 - **Contact backend** — validated form → API route → SQLite, plus a
   token-protected admin endpoint to read submissions.
+- **Dark mode** — a nav toggle (☾ / ☀) switches the entire site to a navy dark
+  theme; defaults to the visitor's system preference, persists the choice, and
+  applies before first paint (no flash). The interactive canvases adapt live.
 - Fully responsive, respects `prefers-reduced-motion`, honest risk disclaimers.
 
 ## Pages

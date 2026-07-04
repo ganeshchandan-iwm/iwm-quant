@@ -11,7 +11,11 @@ import { useEffect, useRef } from "react";
  * never affects layout.
  */
 
-const BLUE = (a: number) => `rgba(31, 94, 234, ${a})`;
+// theme-aware blue: brighter in dark mode for contrast on the navy background
+const BLUE = (a: number) =>
+  document.documentElement.classList.contains("dark")
+    ? `rgba(109, 158, 255, ${a})`
+    : `rgba(31, 94, 234, ${a})`;
 
 const BAND_H = 210; // canvas height in px
 const STEP = 13; // px per candle slot

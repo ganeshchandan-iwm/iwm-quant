@@ -23,14 +23,26 @@ export default function MarketPlayground() {
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const css = getComputedStyle(document.documentElement);
-    const COLORS = {
-      calm: css.getPropertyValue("--color-primary").trim() || "#1f5eea",
-      active: css.getPropertyValue("--color-amber").trim() || "#d97706",
-      wild: css.getPropertyValue("--color-down").trim() || "#dc2626",
-      grid: "rgba(31, 94, 234, 0.08)",
-      mut: css.getPropertyValue("--color-mut").trim() || "#52698a",
+    // theme-aware colors, re-read whenever the html class (theme) changes
+    const readColors = () => {
+      const css = getComputedStyle(document.documentElement);
+      const dark = document.documentElement.classList.contains("dark");
+      return {
+        calm: css.getPropertyValue("--color-primary").trim() || "#1f5eea",
+        active: css.getPropertyValue("--color-amber").trim() || "#d97706",
+        wild: css.getPropertyValue("--color-down").trim() || "#dc2626",
+        grid: dark ? "rgba(109, 158, 255, 0.10)" : "rgba(31, 94, 234, 0.08)",
+        mut: css.getPropertyValue("--color-mut").trim() || "#52698a",
+      };
     };
+    let COLORS = readColors();
+    const themeObserver = new MutationObserver(() => {
+      COLORS = readColors();
+    });
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
     let w = 0;
     let h = 0;
@@ -215,6 +227,7 @@ export default function MarketPlayground() {
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
+      themeObserver.disconnect();
       canvas.removeEventListener("pointermove", onMove);
       canvas.removeEventListener("pointerleave", onLeave);
       canvas.removeEventListener("pointerdown", onDown);

@@ -24,6 +24,31 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* ---------- dark mode ---------- */
+/* The whole site is driven by the tokens above; dark mode simply
+   re-points them. Toggled via a `dark` class on <html> (see ThemeToggle). */
+html {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+  --color-bg: #070e1a;
+  --color-panel: #0c1727;
+  --color-panel-2: #111f33;
+  --color-edge: #223756;
+  --color-edge-soft: #182740;
+  --color-primary: #4d8dff;
+  --color-primary-dim: #2f6ae0;
+  --color-cyan: #3cc5e8;
+  --color-amber: #f0a63c;
+  --color-down: #f26a76;
+  --color-fg: #e8eefb;
+  --color-mut: #93a7c4;
+  --color-ink: #050d1a;
+  --color-ink-2: #0e2242;
+  --color-sky: #8db6ff;
+}
+
 html {
   scroll-behavior: smooth;
 }

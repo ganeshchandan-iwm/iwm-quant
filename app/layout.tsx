@@ -31,10 +31,18 @@ export const metadata: Metadata = {
   },
 };
 
+// Applies the saved (or system-preferred) theme before first paint — no flash.
+const themeBootScript = `(function(){try{var t=localStorage.getItem("iwm-theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches)){document.documentElement.classList.add("dark")}}catch(e){}})()`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${jetbrains.variable}`}
+      suppressHydrationWarning
+    >
       <body className="antialiased min-h-screen flex flex-col">
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <LandingIntro />
         <Nav />
         <main className="flex-1">{children}</main>
