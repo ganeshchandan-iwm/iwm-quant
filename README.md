@@ -18,10 +18,15 @@ lightweight backend that stores contact enquiries in SQLite.
 - **Interactive market playground** — a landing element you can *play with*:
   your cursor is the order flow, moving fast raises volatility, clicking drops
   a market shock, and a regime meter flips between CALM / ACTIVE / TURBULENT.
-- **Decrypt-reveal headlines** — cipher glyphs resolve into copy on every page.
-- **Live-typing research shell** — a dark ink terminal panel in the hero types
-  a realistic research/risk status loop.
-- **Gaming culture section** — poker nights, chess & Go, strategy games and
+- **Decrypt-reveal headlines** — cipher glyphs resolve into copy on every page,
+  layout-stable (an invisible placeholder pins the final size so nothing shifts).
+- **Live-typing research shell** — a dark ink terminal panel on the Lab page
+  types a realistic research/risk status loop.
+- **Games & Puzzles highlight** — a featured careers section with the desk's
+  game culture (poker night, chess ladder, market-making game, Fermi Fridays)
+  plus an **interactive puzzle box**: answer real quant-interview brainteasers
+  and get the reasoning.
+- **Gaming culture section** on home — poker, chess & Go, strategy games and
   hackathons framed as decision-making training (SIG-style).
 - **Careers** — role cards (Quant Researcher, Quant Developer, Quant Trader,
   Data Engineer, Internship, Graduate Programme), life-at-the-firm perks, and
@@ -38,11 +43,11 @@ lightweight backend that stores contact enquiries in SQLite.
 
 | Route | Purpose |
 |-------|---------|
-| `/` | Hero (decrypt reveal + research shell), interactive market playground, who-we-are, pillars, gaming culture, careers teaser, CTA |
+| `/` | Centered decrypt-reveal hero, interactive market playground, who-we-are, pillars, gaming culture, careers teaser, CTA |
 | `/approach` | Pipeline (Data → Signal → Risk → Execution) + operating principles |
-| `/lab` | Active experiments as live monitor cards |
+| `/lab` | Research-shell terminal + active experiments as live monitor cards |
 | `/research` | Featured + gallery of research abstracts |
-| `/careers` | Open roles, life at IWM Quant, hiring process |
+| `/careers` | Open roles, Games & Puzzles highlight (interactive puzzle box), perks, hiring process |
 | `/contact` | Contact form (stored in SQLite) + head office details & desk hours |
 
 **Head office:** 1502, One Lodha Place, Lower Parel, Mumbai, Maharashtra 400013, India.

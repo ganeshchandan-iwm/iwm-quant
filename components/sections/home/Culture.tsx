@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { CULTURE } from "@/lib/content";
@@ -28,6 +29,18 @@ export default function Culture() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal className="mt-10 text-center">
+          <Link
+            href="/careers#games"
+            className="group inline-block rounded border border-primary/50 bg-primary/5 px-6 py-3 font-mono text-sm text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/20"
+          >
+            ♟ explore games &amp; puzzles — try one yourself{" "}
+            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

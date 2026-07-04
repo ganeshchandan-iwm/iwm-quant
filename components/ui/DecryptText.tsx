@@ -2,11 +2,18 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const GLYPHS = "アイウエオ01$#%&@≠∑∆πλ<>{}[]|/\\+=-";
+// ASCII-only glyphs: in a monospace font every substitute has the same
+// advance width as the real character, so the scramble never reflows the
+// layout (no jitter in neighbouring elements while text resolves).
+const GLYPHS = "01$#%&@<>{}[]|/\\+=*-";
 
 /**
  * Renders text as scrambled cipher glyphs that resolve left-to-right
  * into the real string — the site's signature "decrypt" reveal.
+ *
+ * Layout-stable: the real text is rendered as an invisible placeholder to
+ * reserve exact final dimensions, and the animation plays in an absolutely
+ * positioned overlay — so surrounding content never shifts during the effect.
  */
 export default function DecryptText({
   text,
@@ -65,8 +72,19 @@ export default function DecryptText({
   }, [text, delay, speed]);
 
   return (
-    <span className={className} style={{ opacity: started ? 1 : 0 }} aria-label={text}>
-      {display}
+    <span className={`relative block ${className}`} aria-label={text}>
+      {/* invisible placeholder pins the final layout size */}
+      <span className="invisible" aria-hidden>
+        {text}
+      </span>
+      {/* animated overlay — never affects layout */}
+      <span
+        className="absolute inset-0"
+        aria-hidden
+        style={{ opacity: started ? 1 : 0 }}
+      >
+        {display}
+      </span>
     </span>
   );
 }

@@ -4,6 +4,7 @@ import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import DecryptText from "@/components/ui/DecryptText";
 import RoleCard from "@/components/sections/careers/RoleCard";
+import GamesPuzzles from "@/components/sections/careers/GamesPuzzles";
 import { ROLES, PERKS, HIRING_STEPS } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -49,6 +50,9 @@ export default function CareersPage() {
             </Reveal>
           ))}
         </div>
+
+        {/* games & puzzles — the highlight */}
+        <GamesPuzzles />
 
         {/* life at IWM */}
         <SectionHeading

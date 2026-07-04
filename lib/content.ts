@@ -296,6 +296,89 @@ export const ROLES: Role[] = [
   },
 ];
 
+export const GAMES = {
+  heading: "Games & Puzzles",
+  intro:
+    "This is the loudest part of our culture — and the sharpest part of our hiring. Games force honest decisions under uncertainty, with scoreboards you can't argue with. We play constantly, and we hire people who light up at a good puzzle.",
+  items: [
+    {
+      icon: "♠",
+      title: "Poker night — every Thursday",
+      body: "Expected value, bet sizing, reading incomplete information. The desk ledger tracks lifetime EV, not lifetime luck.",
+    },
+    {
+      icon: "♞",
+      title: "Chess & Go ladder",
+      body: "A standing office ladder with monthly playoffs. Positional patience is a trading skill wearing a different uniform.",
+    },
+    {
+      icon: "🎲",
+      title: "The market-making game",
+      body: "Quote a two-sided market on anything — dice sums, jellybeans, cricket scores — while the desk trades against you. Our favourite interview game, and Friday's favourite pastime.",
+    },
+    {
+      icon: "∞",
+      title: "Fermi Fridays",
+      body: "How many tennis balls fit in this office? Estimate, defend, refine. Fast, structured guessing is half of good research.",
+    },
+    {
+      icon: "🧩",
+      title: "Puzzle ladder",
+      body: "A rolling queue of probability riddles and brainteasers with a public leaderboard. New puzzle every Monday, solutions argued over lunch.",
+    },
+    {
+      icon: "🏆",
+      title: "Puzzle hunt & hackathons",
+      body: "An annual all-day puzzle hunt across Lower Parel, plus two internal hackathons a year. Some production tooling started as a weekend hack.",
+    },
+  ],
+  note: "Bring your favourite game to an interview. Genuinely — we'll play.",
+};
+
+export type Puzzle = {
+  q: string;
+  options: string[];
+  answer: number;
+  why: string;
+};
+
+export const PUZZLES: Puzzle[] = [
+  {
+    q: "You flip a fair coin until it lands heads. On average, how many flips does it take?",
+    options: ["1.5", "2", "e ≈ 2.718", "3"],
+    answer: 1,
+    why: "The flip count is geometric with p = ½, so the expectation is 1/p = 2. Half the time you're done in one; the long tail of unlucky runs pulls the average up to exactly two.",
+  },
+  {
+    q: "Roll a fair die. You may keep the face value in ₹, or reroll once and keep the second roll. What's the optimal strategy?",
+    options: [
+      "Always keep the first roll",
+      "Always reroll",
+      "Reroll on 1–3, keep 4–6",
+      "Reroll only on 1",
+    ],
+    answer: 2,
+    why: "A reroll is worth 3.5 in expectation. So keep any first roll above 3.5 (i.e. 4, 5, 6) and reroll anything below it. Comparing what you hold against the expected value of the alternative is the whole job, really.",
+  },
+  {
+    q: "A stock moves +1% or −1% each day with equal probability. After a year, its price is most likely to be…",
+    options: [
+      "Right where it started",
+      "Higher than it started",
+      "Lower than it started",
+      "Equally likely higher or lower",
+    ],
+    answer: 2,
+    why: "Volatility drag: (1.01)(0.99) = 0.9999 < 1, so the median path drifts down even though the mean is flat. Compounding is not symmetric — a core reason risk management exists.",
+  },
+  {
+    q: "A crash detector fires on 90% of crash days and false-fires on 10% of normal days. Crashes happen 1% of days. It just fired — what's the chance of a crash?",
+    options: ["≈ 90%", "≈ 50%", "≈ 8%", "≈ 1%"],
+    answer: 2,
+    why: "Bayes: true alarms ≈ 0.9 × 1% = 0.9%; false alarms ≈ 10% × 99% = 9.9%. So P(crash | alarm) ≈ 0.9 / 10.8 ≈ 8%. Base rates humble every signal — never trust an alert without them.",
+  },
+];
+
 export const PERKS = [
   { icon: "♟", title: "Games culture", body: "Poker nights, chess ladder, strategy-game tournaments and an actual games room — because decision training should be fun." },
   { icon: "📚", title: "Learning budget", body: "Books, courses and conferences funded, plus internal seminars where anyone can teach anything." },

@@ -10,7 +10,8 @@ const BOOT_LINES = [
   "> ACCESS GRANTED — welcome inside.",
 ];
 
-const GLYPHS = "アイウエオ01$#%&@≠∑∆πλ<>{}[]|/\\+=-";
+// ASCII-only so the mono logo never changes width mid-scramble
+const GLYPHS = "01$#%&@<>{}[]|/\\+=*-";
 const LOGO = "IWM·QUANT";
 
 /**
