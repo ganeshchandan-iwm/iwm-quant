@@ -35,7 +35,7 @@ export async function POST(req: Request) {
   }
 
   try {
-    const id = saveContact({ name, email, phone: phone || undefined, company: company || undefined, message });
+    const id = await saveContact({ name, email, phone: phone || undefined, company: company || undefined, message });
     return NextResponse.json({ ok: true, id }, { status: 201 });
   } catch (err) {
     console.error("Error saving contact:", err);
@@ -53,5 +53,5 @@ export async function GET(req: Request) {
   if (!token || provided !== token) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }
-  return NextResponse.json({ contacts: listContacts() });
+  return NextResponse.json({ contacts: await listContacts() });
 }

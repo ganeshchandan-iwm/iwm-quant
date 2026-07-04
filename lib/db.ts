@@ -1,6 +1,17 @@
 import { DatabaseSync } from "node:sqlite";
+import { createClient, type Client } from "@libsql/client";
 import path from "path";
 import fs from "fs";
+
+/**
+ * Contact storage — two backends behind one async API:
+ *
+ * - Local / self-hosted: SQLite file at data/iwm.db via Node's built-in
+ *   node:sqlite. Zero setup; used whenever TURSO_DATABASE_URL is unset.
+ * - Production (Vercel & other serverless): Turso (hosted libSQL/SQLite).
+ *   Set TURSO_DATABASE_URL + TURSO_AUTH_TOKEN and submissions persist
+ *   across deployments and serverless instances.
+ */
 
 export type Contact = {
   id: number;
@@ -12,59 +23,104 @@ export type Contact = {
   created_at: string;
 };
 
-// Reuse a single connection across dev hot-reloads.
-const globalForDb = globalThis as unknown as { __iwmDb?: DatabaseSync };
+const SCHEMA = `
+  CREATE TABLE IF NOT EXISTS contacts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    phone TEXT,
+    company TEXT,
+    message TEXT NOT NULL,
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+  )
+`;
 
-function createDb(): DatabaseSync {
-  const dataDir = path.join(process.cwd(), "data");
-  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+// Reuse connections across dev hot-reloads / warm serverless invocations.
+const g = globalThis as unknown as {
+  __iwmLocal?: DatabaseSync;
+  __iwmTurso?: Client;
+  __iwmTursoReady?: Promise<unknown>;
+};
 
-  const db = new DatabaseSync(path.join(dataDir, "iwm.db"));
-  db.exec("PRAGMA journal_mode = WAL");
-  db.exec(`
-    CREATE TABLE IF NOT EXISTS contacts (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT NOT NULL,
-      email TEXT NOT NULL,
-      phone TEXT,
-      company TEXT,
-      message TEXT NOT NULL,
-      created_at TEXT NOT NULL DEFAULT (datetime('now'))
-    )
-  `);
-  return db;
+const usingTurso = () => Boolean(process.env.TURSO_DATABASE_URL);
+
+/* ---------- Turso (hosted) ---------- */
+
+function turso(): Client {
+  if (!g.__iwmTurso) {
+    g.__iwmTurso = createClient({
+      url: process.env.TURSO_DATABASE_URL!,
+      authToken: process.env.TURSO_AUTH_TOKEN,
+    });
+  }
+  return g.__iwmTurso;
 }
 
-export function getDb(): DatabaseSync {
-  if (!globalForDb.__iwmDb) globalForDb.__iwmDb = createDb();
-  return globalForDb.__iwmDb;
+function tursoReady(): Promise<unknown> {
+  if (!g.__iwmTursoReady) g.__iwmTursoReady = turso().execute(SCHEMA);
+  return g.__iwmTursoReady;
 }
 
-export function saveContact(input: {
+/* ---------- Local SQLite (node:sqlite) ---------- */
+
+function local(): DatabaseSync {
+  if (!g.__iwmLocal) {
+    const dataDir = path.join(process.cwd(), "data");
+    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+    const db = new DatabaseSync(path.join(dataDir, "iwm.db"));
+    db.exec("PRAGMA journal_mode = WAL");
+    db.exec(SCHEMA);
+    g.__iwmLocal = db;
+  }
+  return g.__iwmLocal;
+}
+
+/* ---------- Public API ---------- */
+
+export async function saveContact(input: {
   name: string;
   email: string;
   phone?: string;
   company?: string;
   message: string;
-}): number {
-  const db = getDb();
-  const stmt = db.prepare(
-    `INSERT INTO contacts (name, email, phone, company, message)
-     VALUES (?, ?, ?, ?, ?)`
-  );
-  const result = stmt.run(
+}): Promise<number> {
+  const args = [
     input.name,
     input.email,
     input.phone ?? null,
     input.company ?? null,
-    input.message
-  );
+    input.message,
+  ];
+
+  if (usingTurso()) {
+    await tursoReady();
+    const res = await turso().execute({
+      sql: `INSERT INTO contacts (name, email, phone, company, message)
+            VALUES (?, ?, ?, ?, ?)`,
+      args,
+    });
+    return Number(res.lastInsertRowid ?? 0);
+  }
+
+  const result = local()
+    .prepare(
+      `INSERT INTO contacts (name, email, phone, company, message)
+       VALUES (?, ?, ?, ?, ?)`
+    )
+    .run(...args);
   return Number(result.lastInsertRowid);
 }
 
-export function listContacts(): Contact[] {
-  const db = getDb();
-  return db
-    .prepare(`SELECT * FROM contacts ORDER BY created_at DESC`)
+export async function listContacts(): Promise<Contact[]> {
+  if (usingTurso()) {
+    await tursoReady();
+    const res = await turso().execute(
+      "SELECT * FROM contacts ORDER BY created_at DESC"
+    );
+    return res.rows as unknown as Contact[];
+  }
+
+  return local()
+    .prepare("SELECT * FROM contacts ORDER BY created_at DESC")
     .all() as unknown as Contact[];
 }
