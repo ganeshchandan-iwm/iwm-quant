@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import GlowOrbs from "@/components/ui/GlowOrbs";
 import Reveal from "@/components/ui/Reveal";
 import DecryptText from "@/components/ui/DecryptText";
 import Terminal from "@/components/market/Terminal";
@@ -17,7 +16,6 @@ export default function LabPage() {
   return (
     <div className="relative overflow-hidden">
       <div className="absolute inset-0 bg-grid" aria-hidden />
-      <GlowOrbs />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">

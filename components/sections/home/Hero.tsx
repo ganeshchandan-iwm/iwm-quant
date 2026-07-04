@@ -1,15 +1,15 @@
 import Link from "next/link";
 import DecryptText from "@/components/ui/DecryptText";
-import GlowOrbs from "@/components/ui/GlowOrbs";
+import CandleWell from "@/components/market/CandleWell";
 import Reveal from "@/components/ui/Reveal";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 bg-grid" aria-hidden />
-      <GlowOrbs />
+      <CandleWell />
 
-      <div className="relative z-10 mx-auto max-w-4xl px-4 md:px-8 py-24 md:py-32 text-center">
+      <div className="relative z-10 mx-auto max-w-4xl px-4 md:px-8 pt-24 md:pt-32 pb-44 md:pb-52 text-center">
         <p className="font-mono text-xs tracking-[0.35em] text-primary uppercase mb-7">
           {"// I Wealth Management Quant · Mumbai"}
         </p>
@@ -46,12 +46,6 @@ export default function Hero() {
               join the desk
             </Link>
           </div>
-        </Reveal>
-
-        <Reveal delay={800}>
-          <p className="mt-10 font-mono text-sm text-primary/80 tracking-widest">
-            Detect. Decide. Dominate.
-          </p>
         </Reveal>
       </div>
     </section>

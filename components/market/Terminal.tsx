@@ -59,7 +59,7 @@ export default function Terminal() {
   }, [lines, current]);
 
   return (
-    <div className="corner-frame rounded-lg border border-ink-2 bg-ink shadow-2xl shadow-primary/15 overflow-hidden relative scanline">
+    <div className="corner-frame rounded-lg border border-ink-2 bg-ink shadow-2xl shadow-primary/15 overflow-hidden relative">
       {/* title bar */}
       <div className="flex items-center justify-between border-b border-ink-2 bg-ink-2/80 px-4 py-2.5">
         <div className="flex items-center gap-2">

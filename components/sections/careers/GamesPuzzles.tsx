@@ -7,13 +7,13 @@ export default function GamesPuzzles() {
   return (
     <section id="games" className="relative mb-24 scroll-mt-24">
       {/* highlight frame */}
-      <div className="corner-frame relative overflow-hidden rounded-xl border border-primary/30 bg-gradient-to-br from-primary/[0.06] via-panel to-cyan/[0.05] p-6 md:p-10 scanline">
+      <div className="corner-frame relative overflow-hidden rounded-xl border border-primary/30 bg-gradient-to-br from-primary/[0.06] via-panel to-cyan/[0.05] p-6 md:p-10">
         <Reveal className="mb-10 text-center">
           <p className="font-mono text-xs tracking-[0.35em] text-primary uppercase mb-3">
             {"// the highlight"}
           </p>
           <h2 className="font-mono text-3xl md:text-5xl font-bold tracking-tight text-fg">
-            <span className="text-shimmer">{GAMES.heading}</span>
+            <span className="text-primary">{GAMES.heading}</span>
           </h2>
           <p className="mt-4 text-mut max-w-3xl mx-auto leading-relaxed">{GAMES.intro}</p>
           <div className="mt-6 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent" />

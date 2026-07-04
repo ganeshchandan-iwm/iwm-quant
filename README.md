@@ -15,6 +15,9 @@ lightweight backend that stores contact enquiries in SQLite.
 - **Landing "boot" animation** — a one-per-session dark-navy terminal boot
   sequence that authenticates the visitor, scramble-resolves the logo, and
   splits open like a vault to reveal the light site (click / Esc to skip).
+- **Candlestick well** — an IMC-style interactive band along the bottom of the
+  hero: a field of candlesticks undulates in a slow wave, swells under your
+  cursor, and ripples outward when you click. Calm, monochrome, always alive.
 - **Interactive market playground** — a landing element you can *play with*:
   your cursor is the order flow, moving fast raises volatility, clicking drops
   a market shock, and a regime meter flips between CALM / ACTIVE / TURBULENT.
@@ -43,7 +46,7 @@ lightweight backend that stores contact enquiries in SQLite.
 
 | Route | Purpose |
 |-------|---------|
-| `/` | Centered decrypt-reveal hero, interactive market playground, who-we-are, pillars, gaming culture, careers teaser, CTA |
+| `/` | Centered decrypt-reveal hero over an interactive candlestick well, market playground, who-we-are, pillars, gaming culture, careers teaser, CTA |
 | `/approach` | Pipeline (Data → Signal → Risk → Execution) + operating principles |
 | `/lab` | Research-shell terminal + active experiments as live monitor cards |
 | `/research` | Featured + gallery of research abstracts |

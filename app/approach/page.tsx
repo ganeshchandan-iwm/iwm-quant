@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import GlowOrbs from "@/components/ui/GlowOrbs";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import DecryptText from "@/components/ui/DecryptText";
@@ -14,7 +13,6 @@ export default function ApproachPage() {
   return (
     <div className="relative overflow-hidden">
       <div className="absolute inset-0 bg-grid" aria-hidden />
-      <GlowOrbs />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8 py-20">
         {/* intro */}

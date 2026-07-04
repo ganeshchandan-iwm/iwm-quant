@@ -5,13 +5,13 @@ export default function CtaBanner() {
   return (
     <section className="mx-auto max-w-7xl px-4 md:px-8 py-20 md:py-24">
       <Reveal>
-        <div className="corner-frame relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-panel via-panel-2 to-panel p-10 md:p-14 text-center scanline">
+        <div className="corner-frame relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-panel via-panel-2 to-panel p-10 md:p-14 text-center">
           <p className="font-mono text-xs tracking-[0.35em] text-primary/80 uppercase mb-4">
             {"// transmission"}
           </p>
           <h2 className="font-mono text-2xl md:text-4xl font-bold text-fg">
             Interested in decoding signals{" "}
-            <span className="text-shimmer">hidden in noise?</span>
+            <span className="text-primary">hidden in noise?</span>
           </h2>
           <p className="mt-4 text-mut max-w-xl mx-auto">
             Let&apos;s talk markets, math, and beyond. Investors, researchers and engineers
