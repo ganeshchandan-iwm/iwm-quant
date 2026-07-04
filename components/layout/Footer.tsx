@@ -24,8 +24,7 @@ export default function Footer() {
           <p className="text-fg mb-3 text-xs uppercase tracking-widest">Navigate</p>
           {[
             ["/approach", "Approach"],
-            ["/lab", "Lab"],
-            ["/research", "Research"],
+            ["/lab", "Research Lab"],
             ["/careers", "Careers"],
             ["/contact", "Contact"],
           ].map(([href, label]) => (

@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/ui/Reveal";
+import SectionHeading from "@/components/ui/SectionHeading";
 import DecryptText from "@/components/ui/DecryptText";
 import Terminal from "@/components/market/Terminal";
 import LabCard from "@/components/sections/lab/LabCard";
-import { LAB_EXPERIMENTS } from "@/lib/content";
+import ResearchCard from "@/components/sections/research/ResearchCard";
+import { LAB_EXPERIMENTS, RESEARCH } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Lab",
-  description: "Active experiments inside the IWM Quant research lab.",
+  title: "Research Lab",
+  description:
+    "Active experiments inside the IWM Quant research lab, and selected research from the desk.",
 };
 
 export default function LabPage() {
   const running = LAB_EXPERIMENTS.filter((e) => e.status === "RUNNING").length;
+  const featured = RESEARCH.filter((r) => r.featured);
+  const rest = RESEARCH.filter((r) => !r.featured);
 
   return (
     <div className="relative overflow-hidden">
@@ -21,7 +26,7 @@ export default function LabPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="max-w-3xl">
             <p className="font-mono text-xs tracking-[0.35em] text-primary/80 uppercase mb-4">
-              {"// the lab"}
+              {"// research lab"}
             </p>
             <h1 className="font-mono text-4xl md:text-6xl font-bold tracking-tight">
               <DecryptText text="Active experiments." className="text-fg" />
@@ -50,6 +55,34 @@ export default function LabPage() {
               <LabCard exp={exp} />
             </Reveal>
           ))}
+        </div>
+
+        {/* research — what the lab publishes */}
+        <div id="research" className="mt-28 scroll-mt-24">
+          <SectionHeading
+            kicker="research"
+            title="Signal, published."
+            sub="Selected abstracts from the desk. The interesting parts stay in-house — but the ideas below show how we think."
+          />
+
+          {featured.map((paper) => (
+            <Reveal key={paper.id} className="mb-10">
+              <div className="max-w-4xl mx-auto">
+                <p className="font-mono text-xs tracking-[0.3em] uppercase text-primary/70 mb-3">
+                  ★ featured
+                </p>
+                <ResearchCard paper={paper} />
+              </div>
+            </Reveal>
+          ))}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {rest.map((paper, i) => (
+              <Reveal key={paper.id} delay={(i % 3) * 130}>
+                <ResearchCard paper={paper} />
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </div>

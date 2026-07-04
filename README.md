@@ -32,7 +32,7 @@ lightweight backend that stores contact enquiries in SQLite.
 - **Gaming culture section** on home — poker, chess & Go, strategy games and
   hackathons framed as decision-making training (SIG-style).
 - **Careers** — role cards (Quant Researcher, Quant Developer, Quant Trader,
-  Data Engineer, Internship, Graduate Programme), life-at-the-firm perks, and
+  Data Engineer, AI/ML Engineer, Internship), life-at-the-firm perks, and
   a four-step hiring process. Role cards pre-fill the contact form.
 - **Lab monitor cards** — experiments with live status LEDs (`RUNNING`,
   `CALIBRATING`, `BACKTESTING`, `PAUSED`), sparklines and focus tags.
@@ -51,8 +51,7 @@ lightweight backend that stores contact enquiries in SQLite.
 |-------|---------|
 | `/` | Centered decrypt-reveal hero over an interactive candlestick well, market playground, who-we-are, pillars, gaming culture, careers teaser, CTA |
 | `/approach` | Pipeline (Data → Signal → Risk → Execution) + operating principles |
-| `/lab` | Research-shell terminal + active experiments as live monitor cards |
-| `/research` | Featured + gallery of research abstracts |
+| `/lab` | **Research Lab** — terminal, live experiment cards, and the research gallery (`/research` redirects here) |
 | `/careers` | Open roles, Games & Puzzles highlight (interactive puzzle box), perks, hiring process |
 | `/contact` | Contact form (stored in SQLite) + head office details & desk hours |
 
@@ -71,7 +70,7 @@ lightweight backend that stores contact enquiries in SQLite.
 ```
 app/                      # routes only — pages stay thin
   page.tsx                # home (composes section components)
-  approach/ lab/ research/ careers/ contact/
+  approach/ lab/ careers/ contact/   # research merged into lab/
   api/contact/route.ts    # POST: store enquiry · GET: admin list
   layout.tsx  globals.css  not-found.tsx
 components/

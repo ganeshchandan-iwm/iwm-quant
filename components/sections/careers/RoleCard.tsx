@@ -4,7 +4,6 @@ import type { Role } from "@/lib/content";
 const TYPE_STYLES: Record<Role["type"], string> = {
   "Full-time": "border-primary/40 text-primary",
   Internship: "border-cyan/40 text-cyan",
-  Graduate: "border-amber/50 text-amber",
 };
 
 export default function RoleCard({ role }: { role: Role }) {

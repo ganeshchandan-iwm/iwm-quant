@@ -226,7 +226,7 @@ export const PRINCIPLES = [
 export type Role = {
   id: string;
   title: string;
-  type: "Full-time" | "Internship" | "Graduate";
+  type: "Full-time" | "Internship";
   team: string;
   location: string;
   blurb: string;
@@ -285,14 +285,14 @@ export const ROLES: Role[] = [
     skills: ["strong math/CS fundamentals", "curiosity", "love of puzzles"],
   },
   {
-    id: "GR-01",
-    title: "Graduate Programme",
-    type: "Graduate",
-    team: "Rotational",
+    id: "ML-01",
+    title: "AI/ML Engineer",
+    type: "Full-time",
+    team: "Research / Technology",
     location: "Mumbai",
     blurb:
-      "A structured first year rotating across research, technology and trading before you specialise. Learn how the whole machine works, then pick where you make it better.",
-    skills: ["recent STEM degree", "competitive drive", "team-first mindset"],
+      "Build and productionise the machine-learning stack behind our signals — training pipelines, feature stores, LLM tooling and model monitoring. Research-grade ideas, engineering-grade reliability.",
+    skills: ["PyTorch", "deep learning", "LLM pipelines", "MLOps", "Python"],
   },
 ];
 

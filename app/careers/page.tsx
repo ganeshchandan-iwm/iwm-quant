@@ -9,7 +9,7 @@ import { ROLES, PERKS, HIRING_STEPS } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Careers",
   description:
-    "Careers at IWM Quant — quantitative researchers, developers, traders, internships and our graduate programme in Mumbai.",
+    "Careers at IWM Quant — quantitative researchers, developers, traders, AI/ML engineers and internships in Mumbai.",
 };
 
 export default function CareersPage() {
