@@ -17,7 +17,7 @@ export default function Hero() {
         <h1 className="font-mono font-bold tracking-tight leading-tight text-4xl md:text-6xl">
           <DecryptText text="Markets aren't random." className="text-fg" delay={200} />
           <DecryptText text="They're just encrypted." className="text-mut" delay={900} />
-          <DecryptText text="We hold the key." className="text-primary" delay={1700} />
+          {/* <DecryptText text="We hold the key." className="text-primary" delay={1700} /> */}
         </h1>
 
         <Reveal delay={400}>
