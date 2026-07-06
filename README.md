@@ -40,6 +40,11 @@ lightweight backend that stores contact enquiries in SQLite.
   fabricated performance numbers or vanity stats.
 - **Contact backend** — validated form → API route → SQLite, plus a
   token-protected admin endpoint to read submissions.
+- **Interactive widgets** (`components/interactive/`) — correlation web
+  (home); animated idea funnel (approach); walk-or-market guessing game and
+  anomaly spotter (research lab); playable market-making game with
+  physics-based 3D dice that tumble around the tray (careers); real latency
+  ping to the server (contact).
 - **Dark mode** — a nav toggle (☾ / ☀) switches the entire site to a navy dark
   theme; defaults to the visitor's system preference, persists the choice, and
   applies before first paint (no flash). The interactive canvases adapt live.

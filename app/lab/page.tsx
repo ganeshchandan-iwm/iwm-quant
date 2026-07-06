@@ -5,6 +5,8 @@ import DecryptText from "@/components/ui/DecryptText";
 import Terminal from "@/components/market/Terminal";
 import LabCard from "@/components/sections/lab/LabCard";
 import ResearchCard from "@/components/sections/research/ResearchCard";
+import WalkOrMarket from "@/components/interactive/WalkOrMarket";
+import AnomalySpotter from "@/components/interactive/AnomalySpotter";
 import { LAB_EXPERIMENTS, RESEARCH } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -55,6 +57,23 @@ export default function LabPage() {
               <LabCard exp={exp} />
             </Reveal>
           ))}
+        </div>
+
+        {/* hands-on: play with the lab's ideas */}
+        <div className="mt-28">
+          <SectionHeading
+            kicker="try the ideas"
+            title="Your eyes vs. the models"
+            sub="Two of the lab's core problems, turned into games. They're harder than they look — which is precisely the research finding."
+          />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+            <Reveal>
+              <WalkOrMarket />
+            </Reveal>
+            <Reveal delay={150}>
+              <AnomalySpotter />
+            </Reveal>
+          </div>
         </div>
 
         {/* research — what the lab publishes */}

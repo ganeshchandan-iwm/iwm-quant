@@ -1,5 +1,6 @@
 import Reveal from "@/components/ui/Reveal";
 import PuzzleBox from "@/components/sections/careers/PuzzleBox";
+import MarketMakingGame from "@/components/interactive/MarketMakingGame";
 import { GAMES } from "@/lib/content";
 
 /** Highlighted Games & Puzzles section — the loudest part of the culture. */
@@ -47,6 +48,13 @@ export default function GamesPuzzles() {
           {/* try one now */}
           <Reveal delay={200} className="lg:sticky lg:top-24">
             <PuzzleBox />
+          </Reveal>
+        </div>
+
+        {/* play the interview */}
+        <div className="mt-12 max-w-3xl mx-auto">
+          <Reveal>
+            <MarketMakingGame />
           </Reveal>
         </div>
       </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Reveal from "@/components/ui/Reveal";
 import DecryptText from "@/components/ui/DecryptText";
 import ContactForm from "@/components/sections/contact/ContactForm";
+import LatencyPing from "@/components/interactive/LatencyPing";
 import { OFFICE_ADDRESS } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -81,7 +82,11 @@ export default function ContactPage() {
               </div>
             </Reveal>
 
-            <Reveal delay={450}>
+            {/* <Reveal delay={450}>
+              <LatencyPing />
+            </Reveal> */}
+
+            <Reveal delay={600}>
               <div className="rounded-lg border border-edge-soft bg-panel/50 p-6 font-mono text-xs text-mut leading-relaxed">
                 <span className="text-primary">i</span> Your details are stored securely and
                 used only to respond to your enquiry. We never share contact data.

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import DecryptText from "@/components/ui/DecryptText";
-import { PROCESS_STEPS, PRINCIPLES } from "@/lib/content";
+import IdeaFunnel from "@/components/interactive/IdeaFunnel";
+import { PRINCIPLES } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Approach",
@@ -32,24 +33,16 @@ export default function ApproachPage() {
           </Reveal>
         </div>
 
-        {/* pipeline steps */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-24">
-          {PROCESS_STEPS.map((s, i) => (
-            <Reveal key={s.n} delay={i * 150}>
-              <div className="group relative h-full rounded-lg border border-edge bg-panel/70 p-6 transition-all duration-500 hover:border-primary/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10">
-                <span className="font-mono text-4xl font-bold text-primary/25 group-hover:text-primary/60 transition-colors">
-                  {s.n}
-                </span>
-                <h3 className="mt-3 font-mono text-lg font-semibold text-fg">{s.title}</h3>
-                <p className="mt-2 text-sm text-mut leading-relaxed">{s.body}</p>
-                {i < PROCESS_STEPS.length - 1 && (
-                  <span className="hidden md:block absolute top-1/2 -right-4 text-primary/50 font-mono animate-glow-pulse">
-                    →
-                  </span>
-                )}
-              </div>
-            </Reveal>
-          ))}
+        {/* the pipeline — animated funnel + stage details, one piece */}
+        <div className="mb-24 max-w-6xl mx-auto">
+          <SectionHeading
+            kicker="the pipeline"
+            title="Data → Signal → Risk → Execution"
+            sub="Every dot is a hypothesis entering the pipeline. Watch where they fall — most ideas die, and that's the system working. Hover a stage to trace its gate."
+          />
+          <Reveal>
+            <IdeaFunnel />
+          </Reveal>
         </div>
 
         {/* principles */}
