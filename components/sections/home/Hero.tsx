@@ -11,7 +11,7 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 md:px-8 pt-24 md:pt-32 pb-44 md:pb-52 text-center">
         <p className="font-mono text-xs tracking-[0.35em] text-primary uppercase mb-7">
-          {"// I Wealth Management Quant · Mumbai"}
+          {"// IWM Quant · Mumbai"}
         </p>
 
         <h1 className="font-mono font-bold tracking-tight leading-tight text-4xl md:text-6xl">
