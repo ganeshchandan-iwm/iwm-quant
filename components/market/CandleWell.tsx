@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Candlestick well — a calm, IMC-style interactive band along the bottom
+ * Candlestick well - a calm, IMC-style interactive band along the bottom
  * of the hero. A field of monochrome candlesticks undulates in a slow
  * travelling wave; candles near the cursor swell smoothly, and a click
  * sends a gentle pulse rippling outward through the well. Alive on its
@@ -30,7 +30,7 @@ export default function CandleWell() {
   useEffect(() => {
     const wrap = wrapRef.current;
     const canvas = canvasRef.current;
-    const section = wrap?.parentElement; // hero section — pointer events bubble here
+    const section = wrap?.parentElement; // hero section - pointer events bubble here
     if (!wrap || !canvas || !section) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;

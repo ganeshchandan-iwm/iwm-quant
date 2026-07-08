@@ -2,7 +2,7 @@ import Reveal from "@/components/ui/Reveal";
 
 /**
  * Philosophy as the site's signature motif: a dark research-shell window that
- * "cats" philosophy.md — market-as-game, the puzzle we solve for fun, the
+ * "cats" philosophy.md - market-as-game, the puzzle we solve for fun, the
  * technology×people synergy, and patient tortoise-scaling, all in one read.
  */
 export default function Manifesto() {
@@ -20,7 +20,7 @@ export default function Manifesto() {
                 <span className="w-3 h-3 rounded-full bg-primary/70" />
               </div>
               <span className="font-mono text-[11px] tracking-widest text-sky/70 uppercase">
-                iwm://philosophy — read-only
+                iwm://philosophy - read-only
               </span>
               <span className="w-12" aria-hidden />
             </div>
@@ -32,13 +32,13 @@ export default function Manifesto() {
               </p>
 
               <div className="space-y-1 text-sky/55">
-                <p>{"// the market is the ultimate game —"}</p>
+                <p>{"// the market is the ultimate game -"}</p>
                 <p>{"//   the sum of all human knowledge and behaviour,"}</p>
                 <p>{"//   encrypted as price."}</p>
               </div>
 
               <p className="text-sky">
-                We treat it as a puzzle. Solving it is the challenge — and the
+                We treat it as a puzzle. Solving it is the challenge - and the
                 challenge is exactly what makes it fun.
               </p>
 

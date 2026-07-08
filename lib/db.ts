@@ -4,7 +4,7 @@ import path from "path";
 import fs from "fs";
 
 /**
- * Contact storage — two backends behind one async API:
+ * Contact storage - two backends behind one async API:
  *
  * - Local / self-hosted: SQLite file at data/iwm.db via Node's built-in
  *   node:sqlite. Zero setup; used whenever TURSO_DATABASE_URL is unset.

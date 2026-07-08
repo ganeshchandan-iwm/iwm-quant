@@ -3,7 +3,7 @@ import PuzzleBox from "@/components/sections/careers/PuzzleBox";
 import MarketMakingGame from "@/components/interactive/MarketMakingGame";
 import { GAMES } from "@/lib/content";
 
-/** Highlighted Games & Puzzles section — the loudest part of the culture. */
+/** Highlighted Games & Puzzles section - the loudest part of the culture. */
 export default function GamesPuzzles() {
   return (
     <section id="games" className="relative mb-24 scroll-mt-24">

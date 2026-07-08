@@ -9,7 +9,7 @@ import { ROLES, PERKS, HIRING_STEPS, HR_EMAIL } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Careers",
   description:
-    "Careers at IWM Quant — quantitative researchers, developers, traders, AI/ML engineers and internships in Mumbai.",
+    "Careers at IWM Quant - quantitative researchers, developers, traders, AI/ML engineers and internships in Mumbai.",
 };
 
 export default function CareersPage() {
@@ -28,7 +28,7 @@ export default function CareersPage() {
           </h1>
           <Reveal delay={300}>
             <p className="mt-6 text-mut text-lg leading-relaxed">
-              We hire people who love the game more than the title — mathematicians,
+              We hire people who love the game more than the title - mathematicians,
               engineers and competitors who want their ideas tested against reality every
               single day. Small desk, real ownership, no politics.
             </p>
@@ -39,7 +39,7 @@ export default function CareersPage() {
         <SectionHeading
           kicker="open roles"
           title="Where do you fit?"
-          sub="Every role sits on one open desk in Lower Parel, Mumbai — research, technology and trading side by side."
+          sub="Every role sits on one open desk in Lower Parel, Mumbai - research, technology and trading side by side."
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           {ROLES.map((role, i) => (
@@ -51,7 +51,7 @@ export default function CareersPage() {
 
         <Reveal className="mb-24">
           <p className="rounded-lg border border-dashed border-edge bg-panel/60 px-5 py-4 text-center font-mono text-sm text-mut">
-            Don&apos;t see your role? Convince us we need it — write to{" "}
+            Don&apos;t see your role? Convince us we need it - write to{" "}
             <a
               href={`mailto:${HR_EMAIL}`}
               className="text-primary underline-offset-4 hover:underline"
@@ -62,14 +62,14 @@ export default function CareersPage() {
           </p>
         </Reveal>
 
-        {/* games & puzzles — the highlight */}
+        {/* games & puzzles - the highlight */}
         <GamesPuzzles />
 
         {/* life at IWM */}
         <SectionHeading
           kicker="life at iwm quant"
           title="Serious work. Serious play."
-          sub="The desk runs on curiosity, coffee and competition — here's what that looks like day to day."
+          sub="The desk runs on curiosity, coffee and competition - here's what that looks like day to day."
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-24">
           {PERKS.map((p, i) => (
@@ -91,7 +91,7 @@ export default function CareersPage() {
         <SectionHeading
           kicker="how we hire"
           title="Four steps. No mazes."
-          sub="The whole process usually takes two to three weeks — and we tell you where you stand at every step."
+          sub="The whole process usually takes two to three weeks - and we tell you where you stand at every step."
         />
         <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
           {HIRING_STEPS.map((s, i) => (

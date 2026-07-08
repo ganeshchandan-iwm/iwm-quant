@@ -35,7 +35,7 @@ export default function LabPage() {
             </h1>
             <Reveal delay={300}>
               <p className="mt-6 text-mut text-lg leading-relaxed">
-                Where hypotheses fight for survival. Most ideas die on this board — and
+                Where hypotheses fight for survival. Most ideas die on this board - and
                 that&apos;s exactly how it should be. What survives, trades.
               </p>
             </Reveal>
@@ -64,7 +64,7 @@ export default function LabPage() {
           <SectionHeading
             kicker="try the ideas"
             title="Your eyes vs. the models"
-            sub="Two of the lab's core problems, turned into games. They're harder than they look — which is precisely the research finding."
+            sub="Two of the lab's core problems, turned into games. They're harder than they look - which is precisely the research finding."
           />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
             <Reveal>
@@ -76,12 +76,12 @@ export default function LabPage() {
           </div>
         </div>
 
-        {/* research — what the lab publishes */}
+        {/* research - what the lab publishes */}
         <div id="research" className="mt-28 scroll-mt-24">
           <SectionHeading
             kicker="research"
             title="Signal, published."
-            sub="Selected abstracts from the desk. The interesting parts stay in-house — but the ideas below show how we think."
+            sub="Selected abstracts from the desk. The interesting parts stay in-house - but the ideas below show how we think."
           />
 
           {featured.map((paper) => (

@@ -68,7 +68,7 @@ export default function Terminal() {
           <span className="w-3 h-3 rounded-full bg-primary/70" />
         </div>
         <span className="font-mono text-[11px] tracking-widest text-sky/70 uppercase">
-          iwm://research-shell — live
+          iwm://research-shell - live
         </span>
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full rounded-full bg-sky opacity-60 [animation:ping-dot_1.6s_cubic-bezier(0,0,0.2,1)_infinite]" />

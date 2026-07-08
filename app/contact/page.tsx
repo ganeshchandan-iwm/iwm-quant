@@ -8,7 +8,7 @@ import { OFFICE_ADDRESS, HR_EMAIL } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with IWM Quant — 1502, One Lodha Place, Lower Parel, Mumbai.",
+    "Get in touch with IWM Quant - 1502, One Lodha Place, Lower Parel, Mumbai.",
 };
 
 export default function ContactPage() {

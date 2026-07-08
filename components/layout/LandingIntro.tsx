@@ -7,7 +7,7 @@ const BOOT_LINES = [
   "> authenticating visitor .......... OK",
   "> handshake with market data bus .. OK",
   "> decrypting market feed .......... OK",
-  "> ACCESS GRANTED — welcome inside.",
+  "> ACCESS GRANTED - welcome inside.",
 ];
 
 // ASCII-only so the mono logo never changes width mid-scramble
@@ -32,7 +32,7 @@ function restoreNavLogo() {
  * Unique landing animation: a full-screen terminal boot sequence that types
  * authentication lines, scramble-resolves the logo, then splits open like a
  * vault door. As the doors open, the logo detaches from the console and
- * flies — in real measured screen coordinates — into the navbar, landing
+ * flies - in real measured screen coordinates - into the navbar, landing
  * exactly on top of the real nav logo and crossfading into it. Plays once
  * per session; click/Esc skips it.
  */
@@ -187,7 +187,7 @@ export default function LandingIntro() {
     >
       {/* two vault halves. They slide apart AND dissolve: the opacity fade is
           delayed so the dark panels stay solid as they start moving (the vault
-          feel), then melt to transparent as they clear — turning the hard
+          feel), then melt to transparent as they clear - turning the hard
           dark→light edge into a soft cross-dissolve into the (light) page. */}
       <div
         className="absolute inset-x-0 top-0 h-1/2 bg-ink border-b border-sky/30"

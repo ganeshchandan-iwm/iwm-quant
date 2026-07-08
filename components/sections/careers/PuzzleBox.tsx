@@ -35,7 +35,7 @@ export default function PuzzleBox() {
       {/* header */}
       <div className="flex items-center justify-between border-b border-ink-2 bg-ink-2/80 px-4 py-2.5 font-mono text-[11px]">
         <span className="tracking-widest text-sky/70 uppercase">
-          iwm://puzzle-ladder — try one
+          iwm://puzzle-ladder - try one
         </span>
         <span className="text-sky/60">
           {solved}/{attempted} solved · #{idx + 1} of {PUZZLES.length}
@@ -79,7 +79,7 @@ export default function PuzzleBox() {
         {answered && (
           <div className="rounded border border-ink-2 bg-ink-2/50 p-4 space-y-3">
             <p className={`font-mono text-sm font-semibold ${correct ? "text-primary" : "text-amber"}`}>
-              {correct ? "> correct — nicely done." : "> not quite — here's the thinking:"}
+              {correct ? "> correct - nicely done." : "> not quite - here's the thinking:"}
             </p>
             <p className="text-sm leading-relaxed text-sky/80">{puzzle.why}</p>
             <button
@@ -93,7 +93,7 @@ export default function PuzzleBox() {
 
         {!answered && (
           <p className="font-mono text-[11px] text-sky/40">
-            pick an answer — no timer, but the desk is watching
+            pick an answer - no timer, but the desk is watching
             <span className="animate-blink">▌</span>
           </p>
         )}

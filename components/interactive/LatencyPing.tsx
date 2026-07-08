@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 /**
- * Latency ping — measures the visitor's real round-trip to this site's
+ * Latency ping - measures the visitor's real round-trip to this site's
  * server and reports it terminal-style. Small, real data, on-brand for a
  * firm that counts basis points and milliseconds.
  */
@@ -34,11 +34,11 @@ export default function LatencyPing() {
         med < 60
           ? "practically co-located. we approve."
           : med < 180
-            ? "same neighbourhood as the desk — respectable."
-            : "a long way from the desk — our execution systems feel every one of those milliseconds too.";
-      setLines((l) => [...l, `> median ${med.toFixed(0)} ms — ${verdict}`]);
+            ? "same neighbourhood as the desk - respectable."
+            : "a long way from the desk - our execution systems feel every one of those milliseconds too.";
+      setLines((l) => [...l, `> median ${med.toFixed(0)} ms - ${verdict}`]);
     } else {
-      setLines((l) => [...l, "> network unreachable — even our risk systems can't help that."]);
+      setLines((l) => [...l, "> network unreachable - even our risk systems can't help that."]);
     }
     setRunning(false);
   }, [running]);

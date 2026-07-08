@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { PROCESS_STEPS } from "@/lib/content";
 
 /**
- * The pipeline, in one piece — dots (hypotheses) flow left to right
+ * The pipeline, in one piece - dots (hypotheses) flow left to right
  * through the four stages; most visibly die at the Signal gate, and the
  * trickle that survives becomes "live strategies". The stage panels below
  * the canvas carry the full description of each stage plus what kills
@@ -18,7 +18,7 @@ const SURVIVAL = [0.7, 0.3, 0.65, 0.9]; // pass probability at each gate
 
 const KILLED_BY = [
   "look-ahead bias, survivorship, vendor errors",
-  "fails out-of-sample — most ideas were noise",
+  "fails out-of-sample - most ideas were noise",
   "too correlated, too crowded, tail too fat",
   "costs eat the edge at realistic size",
 ];

@@ -11,14 +11,14 @@ const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrai
 export const metadata: Metadata = {
   metadataBase: new URL("https://iwmquant.com"),
   title: {
-    default: "IWM Quant — Markets Decoded | I Wealth Management Quant",
+    default: "IWM Quant - Markets Decoded | I Wealth Management Quant",
     template: "%s | IWM Quant",
   },
   description:
-    "I Wealth Management Quant is a systematic trading and research firm. Markets aren't random — they're just encrypted. We hold the key.",
+    "I Wealth Management Quant is a systematic trading and research firm. Markets aren't random - they're just encrypted. We hold the key.",
   keywords: ["quant", "quantitative trading", "systematic trading", "algorithmic trading", "IWM Quant", "Mumbai"],
   openGraph: {
-    title: "IWM Quant — Markets Decoded",
+    title: "IWM Quant - Markets Decoded",
     description: "Markets aren't random. They're just encrypted. We hold the key.",
     url: "https://iwmquant.com",
     siteName: "IWM Quant",
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "IWM Quant — Markets Decoded",
+    title: "IWM Quant - Markets Decoded",
     description: "Markets aren't random. They're just encrypted. We hold the key.",
   },
 };
 
-// Applies the saved (or system-preferred) theme before first paint — no flash.
-// Dark mode is disabled for now — force light regardless of stored/system pref.
+// Applies the saved (or system-preferred) theme before first paint - no flash.
+// Dark mode is disabled for now - force light regardless of stored/system pref.
 // To re-enable: restore the commented body below (system-pref + localStorage) and
 // un-hide the ThemeToggle buttons in components/layout/Nav.tsx.
 const themeBootScript = `(function(){try{document.documentElement.classList.remove("dark")}catch(e){}})()`;

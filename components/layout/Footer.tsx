@@ -15,7 +15,7 @@ export default function Footer() {
             </p>
           </div>
           <p className="text-mut text-sm leading-relaxed max-w-sm">
-            I Wealth Management Quant — a systematic trading and research firm.
+            I Wealth Management Quant - a systematic trading and research firm.
             Markets aren&apos;t random. They&apos;re just encrypted.
           </p>
           <p className="font-mono text-xs text-primary/70">

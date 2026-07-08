@@ -2,7 +2,7 @@
   "name": "iwm-quant",
   "version": "1.0.0",
   "private": true,
-  "description": "IWM Quant — I Wealth Management Quant. Markets decoded.",
+  "description": "IWM Quant - I Wealth Management Quant. Markets decoded.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -35,7 +35,7 @@ export default function Culture() {
             href="/careers#games"
             className="group inline-block rounded border border-primary/50 bg-primary/5 px-6 py-3 font-mono text-sm text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/20"
           >
-            ♟ explore games &amp; puzzles — try one yourself{" "}
+            ♟ explore games &amp; puzzles - try one yourself{" "}
             <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>

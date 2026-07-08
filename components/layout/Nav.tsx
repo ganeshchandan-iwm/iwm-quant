@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import LogoMark from "@/components/ui/LogoMark";
-// dark mode disabled for now — import ThemeToggle from "@/components/ui/ThemeToggle";
+// dark mode disabled for now - import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const LINKS = [
   { href: "/", label: "home" },
@@ -57,12 +57,12 @@ export default function Nav() {
           >
             join us
           </Link>
-          {/* dark mode disabled for now — <ThemeToggle className="ml-2" /> */}
+          {/* dark mode disabled for now - <ThemeToggle className="ml-2" /> */}
         </div>
 
         {/* mobile toggle */}
         <div className="md:hidden flex items-center gap-1">
-          {/* dark mode disabled for now — <ThemeToggle /> */}
+          {/* dark mode disabled for now - <ThemeToggle /> */}
           <button
             className="font-mono text-primary text-xl px-2"
             onClick={() => setOpen((v) => !v)}

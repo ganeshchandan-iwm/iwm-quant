@@ -9,11 +9,11 @@ const GLYPHS = "01$#%&@<>{}[]|/\\+=*-";
 
 /**
  * Renders text as scrambled cipher glyphs that resolve left-to-right
- * into the real string — the site's signature "decrypt" reveal.
+ * into the real string - the site's signature "decrypt" reveal.
  *
  * Layout-stable: the real text is rendered as an invisible placeholder to
  * reserve exact final dimensions, and the animation plays in an absolutely
- * positioned overlay — so surrounding content never shifts during the effect.
+ * positioned overlay - so surrounding content never shifts during the effect.
  */
 export default function DecryptText({
   text,
@@ -77,7 +77,7 @@ export default function DecryptText({
       <span className="invisible" aria-hidden>
         {text}
       </span>
-      {/* animated overlay — never affects layout */}
+      {/* animated overlay - never affects layout */}
       <span
         className="absolute inset-0"
         aria-hidden

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 /**
  * Interactive landing element: a live price path the visitor can play with.
- * Your cursor is the order flow — price gravitates toward it, moving fast
+ * Your cursor is the order flow - price gravitates toward it, moving fast
  * injects volatility, and clicking fires a market shock. A regime meter
  * (CALM / ACTIVE / TURBULENT) reacts in real time.
  */

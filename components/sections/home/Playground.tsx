@@ -8,7 +8,7 @@ export default function Playground() {
       <SectionHeading
         kicker="try it yourself"
         title="You are the order flow"
-        sub="Markets move because participants act. Steer the price with your cursor, whip it around to raise volatility, click to drop a shock — and watch the regime shift from calm to turbulent. This is the intuition our models formalise."
+        sub="Markets move because participants act. Steer the price with your cursor, whip it around to raise volatility, click to drop a shock - and watch the regime shift from calm to turbulent. This is the intuition our models formalise."
       />
       <Reveal>
         <MarketPlayground />

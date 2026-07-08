@@ -5,7 +5,7 @@
  *   cap tick = 3.5×2.5u, centred over the W, floating 1u above it
  *   baseline rule = 0.8u thick, 1u below the bars, overhanging 1u each side
  *
- * Monochrome by design — fills with currentColor so it inherits the
+ * Monochrome by design - fills with currentColor so it inherits the
  * surrounding text colour (and therefore the theme). Decorative: it is always
  * paired with the "IWM QUANT" wordmark, so it is hidden from assistive tech.
  */

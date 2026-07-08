@@ -10,7 +10,7 @@ export default function CorrelationSection() {
         <SectionHeading
           kicker="why diversification is hard"
           title="Everything is connected"
-          sub="Correlations between assets drift constantly — and in a crisis they all lurch toward one. Hover an asset to isolate its web; click to see why risk management is a full-time job."
+          sub="Correlations between assets drift constantly - and in a crisis they all lurch toward one. Hover an asset to isolate its web; click to see why risk management is a full-time job."
         />
         <Reveal>
           <CorrelationWeb />

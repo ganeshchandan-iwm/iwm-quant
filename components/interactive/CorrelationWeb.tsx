@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Correlation web — asset nodes on a ring, connected by lines whose
+ * Correlation web - asset nodes on a ring, connected by lines whose
  * strength drifts over time (a simple one-factor model, so equities
  * cluster and gold/USDINR sit negative). Hover a node to isolate its
  * links; click anywhere to fire a stress event and watch correlations
- * spike toward one — the moment diversification vanishes.
+ * spike toward one - the moment diversification vanishes.
  */
 
 const ASSETS = ["NIFTY", "BANKS", "IT", "PHARMA", "GOLD", "USDINR", "CRUDE", "CRYPTO"];
@@ -19,7 +19,7 @@ export default function CorrelationWeb() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [note, setNote] = useState(
-    "correlations drift constantly — hover an asset, click to simulate a stress event"
+    "correlations drift constantly - hover an asset, click to simulate a stress event"
   );
 
   useEffect(() => {
@@ -95,12 +95,12 @@ export default function CorrelationWeb() {
     const onDown = () => {
       shockAt = performance.now();
       setNote(
-        "stress event: correlations spike toward one — diversification vanishes exactly when you need it most."
+        "stress event: correlations spike toward one - diversification vanishes exactly when you need it most."
       );
       setTimeout(
         () =>
           setNote(
-            "correlations drift constantly — hover an asset, click to simulate a stress event"
+            "correlations drift constantly - hover an asset, click to simulate a stress event"
           ),
         4200
       );

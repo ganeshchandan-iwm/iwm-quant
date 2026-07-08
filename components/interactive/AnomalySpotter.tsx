@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 /**
- * Anomaly spotter — a price series streams calmly until, at a random
+ * Anomaly spotter - a price series streams calmly until, at a random
  * moment, the regime breaks (volatility jumps, drift flips). Click the
  * chart the instant you think it happened; your reaction is scored
  * against the model's detection time. Click too early and it's a
@@ -199,7 +199,7 @@ export default function AnomalySpotter() {
         {!started && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-panel/60 backdrop-blur-[2px]">
             <p className="max-w-sm px-6 text-center font-mono text-xs leading-relaxed text-mut">
-              A price feed will stream calmly — until, at a random moment, the regime
+              A price feed will stream calmly - until, at a random moment, the regime
               breaks. Click the chart the instant you spot it. Too early counts as a
               false alarm.
             </p>
@@ -214,23 +214,23 @@ export default function AnomalySpotter() {
       </div>
 
       <div className="border-t border-edge-soft bg-panel-2/70 px-4 py-3 font-mono text-xs space-y-2">
-        {!started && <p className="text-mut/90">the monitor is idle — start the feed when you&apos;re ready.</p>}
-        {started && !result && <p className="text-mut/90">the break is coming. patience — false alarms count against you.</p>}
+        {!started && <p className="text-mut/90">the monitor is idle - start the feed when you&apos;re ready.</p>}
+        {started && !result && <p className="text-mut/90">the break is coming. patience - false alarms count against you.</p>}
         {result?.kind === "false-alarm" && (
           <p className="text-amber">
-            {"> false alarm — nothing had changed yet. noise fooled you (it fools everyone)."}
+            {"> false alarm - nothing had changed yet. noise fooled you (it fools everyone)."}
           </p>
         )}
         {result?.kind === "timed" && (
           <p className={result.yourLagS <= 2.5 ? "text-primary" : "text-amber"}>
             {`> you: +${result.yourLagS.toFixed(1)}s after the break · model: +${result.modelLagS.toFixed(1)}s. `}
             {result.yourLagS <= 2.5
-              ? "sharp — but the model never blinks."
+              ? "sharp - but the model never blinks."
               : "the model was already repositioned before you were sure."}
           </p>
         )}
         {result?.kind === "missed" && (
-          <p className="text-down">{"> missed — the regime broke 10 seconds ago. drawdowns compound while we deliberate."}</p>
+          <p className="text-down">{"> missed - the regime broke 10 seconds ago. drawdowns compound while we deliberate."}</p>
         )}
         {result && (
           <button

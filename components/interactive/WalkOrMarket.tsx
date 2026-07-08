@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 /**
- * Random walk vs. market — two unlabeled charts. One is a pure coin-flip
+ * Random walk vs. market - two unlabeled charts. One is a pure coin-flip
  * walk; the other moves like a real market (volatility clustering, fat
  * tails, occasional jumps). Guess which is the market, get the reveal
  * and the lesson. Regenerates every round; score tallies across rounds.
@@ -127,7 +127,7 @@ export default function WalkOrMarket() {
                   {answered && (
                     <span className={isMarket ? "text-primary" : "text-mut/70"}>
                       {" "}
-                      — {isMarket ? "market-like ✓" : "pure coin-flip"}
+                      - {isMarket ? "market-like ✓" : "pure coin-flip"}
                     </span>
                   )}
                 </p>
@@ -139,11 +139,11 @@ export default function WalkOrMarket() {
         {answered && (
           <div className="rounded border border-edge-soft bg-panel-2/60 p-4 space-y-3">
             <p className={`font-mono text-sm font-semibold ${correct ? "text-primary" : "text-amber"}`}>
-              {correct ? "> correct — good eye." : "> not this time — it's genuinely hard."}
+              {correct ? "> correct - good eye." : "> not this time - it's genuinely hard."}
             </p>
             <p className="text-sm leading-relaxed text-mut">
-              The market-like series has <span className="text-fg">volatility clustering</span> —
-              calm stretches punctuated by violent bursts — and the occasional outsized jump. The
+              The market-like series has <span className="text-fg">volatility clustering</span> -
+              calm stretches punctuated by violent bursts - and the occasional outsized jump. The
               coin-flip&apos;s wiggles are uniform all the way through. Telling them apart is harder
               than it looks; that&apos;s exactly why we measure instead of eyeball.
             </p>

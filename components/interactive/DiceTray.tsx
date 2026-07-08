@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 /**
  * Dice tray with physics + true 3D dice. Each die is a CSS cube (six real
  * faces, opposite sides summing to 7). On a throw the dice slide across
- * the felt, bounce off the walls and each other, and tumble in 3D — you
+ * the felt, bounce off the walls and each other, and tumble in 3D - you
  * see the actual faces wheel past. Friction wins, each cube rotates to
  * rest on the rolled value, and a rounded clip is applied at rest so the
  * silhouette stays perfectly clean. `onSettled` fires once both stop.
@@ -294,7 +294,7 @@ export default function DiceTray({
 
       {rollId === 0 && (
         <p className="pointer-events-none absolute bottom-2 left-3 font-mono text-[10px] uppercase tracking-widest text-sky/40">
-          dice sleeping — send a quote to throw them
+          dice sleeping - send a quote to throw them
         </p>
       )}
     </div>

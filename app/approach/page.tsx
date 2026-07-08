@@ -7,7 +7,7 @@ import { PRINCIPLES } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Approach",
-  description: "How IWM Quant trades: data, signal, risk, execution — in that order.",
+  description: "How IWM Quant trades: data, signal, risk, execution - in that order.",
 };
 
 export default function ApproachPage() {
@@ -27,18 +27,18 @@ export default function ApproachPage() {
           <Reveal delay={300}>
             <p className="mt-6 text-mut text-lg leading-relaxed">
               We don&apos;t forecast headlines. We build a repeatable pipeline that converts
-              raw market data into measured, risk-budgeted positions — and we improve that
+              raw market data into measured, risk-budgeted positions - and we improve that
               pipeline every single day.
             </p>
           </Reveal>
         </div>
 
-        {/* the pipeline — animated funnel + stage details, one piece */}
+        {/* the pipeline - animated funnel + stage details, one piece */}
         <div className="mb-24 max-w-6xl mx-auto">
           <SectionHeading
             kicker="the pipeline"
             title="Data → Signal → Risk → Execution"
-            sub="Every dot is a hypothesis entering the pipeline. Watch where they fall — most ideas die, and that's the system working. Hover a stage to trace its gate."
+            sub="Every dot is a hypothesis entering the pipeline. Watch where they fall - most ideas die, and that's the system working. Hover a stage to trace its gate."
           />
           <Reveal>
             <IdeaFunnel />

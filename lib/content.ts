@@ -8,7 +8,7 @@ export const OFFICE_ADDRESS = {
 };
 
 export const TERMINAL_LINES = [
-  "> IWM Quant research shell — online.",
+  "> IWM Quant research shell - online.",
   "> loading market data pipeline........ OK",
   "> hypothesis queue..................... 3 pending review",
   "> walk-forward validation.............. in progress",
@@ -21,10 +21,10 @@ export const TERMINAL_LINES = [
 export const ABOUT = {
   heading: "A research firm that happens to trade",
   paragraphs: [
-    "IWM Quant — I Wealth Management Quant — is a proprietary quantitative trading and research firm based in Mumbai. We apply the scientific method to financial markets: form a hypothesis, test it honestly against data, and only then let it near capital.",
-    "Proprietary trading and research are two sides of one coin here, and the same rigour extends to the client-focused mandates we manage. Our edge isn't secrets or speed alone — it's cutting-edge technology, from HFT-grade infrastructure to deep data handling, in the hands of people who treat every market question as a puzzle worth solving properly.",
-    "The desk is a deliberate mix of the best of technology and the best of people: traders, researchers and technologists sitting together — game theorists, data scientists and minds trained in maths, physics and computer science, arguing about assumptions in the open and sharing ownership of every strategy that goes live.",
-    "And we scale like the tortoise, not the hare — patient, compounding, honest about capacity. Staying in the game and getting a little better every day beats any single spectacular bet.",
+    "IWM Quant - I Wealth Management Quant - is a proprietary quantitative trading and research firm based in Mumbai. We apply the scientific method to financial markets: form a hypothesis, test it honestly against data, and only then let it near capital.",
+    "Proprietary trading and research are two sides of one coin here, and the same rigour extends to the client-focused mandates we manage. Our edge isn't secrets or speed alone - it's cutting-edge technology, from HFT-grade infrastructure to deep data handling, in the hands of people who treat every market question as a puzzle worth solving properly.",
+    "The desk is a deliberate mix of the best of technology and the best of people: traders, researchers and technologists sitting together - game theorists, data scientists and minds trained in maths, physics and computer science, arguing about assumptions in the open and sharing ownership of every strategy that goes live.",
+    "And we scale like the tortoise, not the hare - patient, compounding, honest about capacity. Staying in the game and getting a little better every day beats any single spectacular bet.",
   ],
   chips: ["Research-driven", "Technology-first", "Risk-obsessed", "Interdisciplinary desk", "Patient by design"],
 };
@@ -32,17 +32,17 @@ export const ABOUT = {
 export const PILLARS = [
   {
     title: "Quantitative Research",
-    body: "We study how prices actually behave — market microstructure, cross-sectional patterns, volatility dynamics — and turn what survives rigorous testing into systematic strategies.",
+    body: "We study how prices actually behave - market microstructure, cross-sectional patterns, volatility dynamics - and turn what survives rigorous testing into systematic strategies.",
     icon: "Σ",
   },
   {
     title: "Trading Technology",
-    body: "Our researchers and engineers build the full stack in-house: data pipelines, simulation environments, risk systems and low-latency, HFT-grade execution — designed to be fast, measured and reliable.",
+    body: "Our researchers and engineers build the full stack in-house: data pipelines, simulation environments, risk systems and low-latency, HFT-grade execution - designed to be fast, measured and reliable.",
     icon: "λ",
   },
   {
     title: "Risk & Portfolio Science",
-    body: "Position sizing, drawdown control and portfolio construction are first-class research problems here — because staying in the game matters more than any single trade.",
+    body: "Position sizing, drawdown control and portfolio construction are first-class research problems here - because staying in the game matters more than any single trade.",
     icon: "∂",
   },
 ];
@@ -50,12 +50,12 @@ export const PILLARS = [
 export const CULTURE = {
   heading: "We take games seriously",
   intro:
-    "We treat the market itself as the ultimate game — the sum of everyone's knowledge and behaviour — and a puzzle we solve because it is genuinely fun. Great trading decisions are made under uncertainty, with incomplete information and real stakes; that is exactly what good games teach. Game-playing isn't a perk at IWM Quant — it's part of how we train judgment.",
+    "We treat the market itself as the ultimate game - the sum of everyone's knowledge and behaviour - and a puzzle we solve because it is genuinely fun. Great trading decisions are made under uncertainty, with incomplete information and real stakes; that is exactly what good games teach. Game-playing isn't a perk at IWM Quant - it's part of how we train judgment.",
   cards: [
     {
       icon: "♠",
       title: "Poker nights",
-      body: "Thinking in probabilities, sizing bets to conviction, folding gracefully when the evidence turns against you — poker is our favourite classroom for expected value.",
+      body: "Thinking in probabilities, sizing bets to conviction, folding gracefully when the evidence turns against you - poker is our favourite classroom for expected value.",
     },
     {
       icon: "♞",
@@ -65,7 +65,7 @@ export const CULTURE = {
     {
       icon: "🎯",
       title: "Strategy & simulation games",
-      body: "Fast decisions with incomplete information, from trading simulations to strategy video games. Team tournaments every quarter — bragging rights are permanent.",
+      body: "Fast decisions with incomplete information, from trading simulations to strategy video games. Team tournaments every quarter - bragging rights are permanent.",
     },
     {
       icon: "⚙",
@@ -87,13 +87,13 @@ export const VALUES = {
     },
     {
       icon: "△",
-      title: "Grit — never say die",
+      title: "Grit - never say die",
       body: "Markets humble everyone. We break hard problems with persistence, not bravado, and come back to the idea that just failed.",
     },
     {
       icon: "◇",
       title: "Character & integrity",
-      body: "We do the honest thing when no one is watching — with each other, with clients, and with our own results.",
+      body: "We do the honest thing when no one is watching - with each other, with clients, and with our own results.",
     },
     {
       icon: "○",
@@ -103,7 +103,7 @@ export const VALUES = {
     {
       icon: "◎",
       title: "Led by conscience",
-      body: "We back people who listen to and follow their conscience — because the fastest way to lose trust is to trade it away.",
+      body: "We back people who listen to and follow their conscience - because the fastest way to lose trust is to trade it away.",
     },
     {
       icon: "✦",
@@ -127,7 +127,7 @@ export const LAB_EXPERIMENTS: {
     id: "EXP-001",
     name: "Neural Architecture Search",
     status: "RUNNING",
-    body: "Automated exploration of network architectures for short-horizon signal extraction — letting the search space surprise us instead of hand-designing every model.",
+    body: "Automated exploration of network architectures for short-horizon signal extraction - letting the search space surprise us instead of hand-designing every model.",
     tags: ["deep learning", "intraday", "automl"],
     spark: [3, 4, 3.6, 5, 5.4, 5.1, 6.2, 6.8, 6.5, 7.4, 8.1, 7.8, 8.6, 9.2],
   },
@@ -135,7 +135,7 @@ export const LAB_EXPERIMENTS: {
     id: "EXP-002",
     name: "Regime-Switching Models",
     status: "RUNNING",
-    body: "Hidden Markov cascades that classify the market's mood — trending, choppy, stressed — so every downstream strategy can adapt its behaviour in real time.",
+    body: "Hidden Markov cascades that classify the market's mood - trending, choppy, stressed - so every downstream strategy can adapt its behaviour in real time.",
     tags: ["regimes", "hmm", "adaptive sizing"],
     spark: [5, 5.6, 5.2, 6, 5.4, 6.6, 6.2, 7, 6.4, 7.6, 7.2, 8, 7.6, 8.4],
   },
@@ -187,7 +187,7 @@ export const RESEARCH: {
     tag: "MACHINE LEARNING",
     date: "2026-05",
     abstract:
-      "We explore quantum-inspired kernel methods for separating genuine structural breaks from noise in order-flow data, and discuss where these feature maps meaningfully outperform classical dimensionality reduction — and where they simply overfit beautifully.",
+      "We explore quantum-inspired kernel methods for separating genuine structural breaks from noise in order-flow data, and discuss where these feature maps meaningfully outperform classical dimensionality reduction - and where they simply overfit beautifully.",
     featured: true,
   },
   {
@@ -196,7 +196,7 @@ export const RESEARCH: {
     tag: "MICROSTRUCTURE",
     date: "2026-03",
     abstract:
-      "A study of queue dynamics in limit order books, examining when the shape and evolution of the book carries exploitable directional information — after realistic costs — and when it is merely noise wearing a convincing costume.",
+      "A study of queue dynamics in limit order books, examining when the shape and evolution of the book carries exploitable directional information - after realistic costs - and when it is merely noise wearing a convincing costume.",
   },
   {
     id: "RP-2026-02",
@@ -220,7 +220,7 @@ export const RESEARCH: {
     tag: "DERIVATIVES",
     date: "2025-11",
     abstract:
-      "Attention-based models that treat the implied-volatility surface as a sequence learn structure that parametric interpolation misses — particularly in the wings, where the interesting risk lives.",
+      "Attention-based models that treat the implied-volatility surface as a sequence learn structure that parametric interpolation misses - particularly in the wings, where the interesting risk lives.",
   },
   {
     id: "RP-2025-05",
@@ -241,7 +241,7 @@ export const PROCESS_STEPS = [
   {
     n: "02",
     title: "Signal",
-    body: "Every hypothesis fights for its life: out-of-sample validation, regime slicing, decay analysis. Most ideas die here — and that's the system working.",
+    body: "Every hypothesis fights for its life: out-of-sample validation, regime slicing, decay analysis. Most ideas die here - and that's the system working.",
   },
   {
     n: "03",
@@ -251,7 +251,7 @@ export const PROCESS_STEPS = [
   {
     n: "04",
     title: "Execution",
-    body: "Microstructure-aware execution that measures every basis point of cost. Alpha is discovered in research — it is kept or lost in execution.",
+    body: "Microstructure-aware execution that measures every basis point of cost. Alpha is discovered in research - it is kept or lost in execution.",
   },
 ];
 
@@ -260,7 +260,7 @@ export const PRINCIPLES = [
   { title: "Risk is a budget", body: "Spent deliberately, never discovered after the fact." },
   { title: "Small edges, compounded", body: "We industrialise many modest edges instead of hunting one miracle." },
   { title: "Automation with judgment", body: "Machines execute; humans own the assumptions." },
-  { title: "Capacity honesty", body: "Every strategy has limits — we measure and respect them." },
+  { title: "Capacity honesty", body: "Every strategy has limits - we measure and respect them." },
   { title: "Kill switches everywhere", body: "Anything live can be halted instantly, by anyone on the desk." },
 ];
 
@@ -282,7 +282,7 @@ export const ROLES: Role[] = [
     team: "Research",
     location: "Mumbai",
     blurb:
-      "Design, test and productionise predictive models for systematic strategies. You'll own ideas end-to-end — from hypothesis to live monitoring — and defend them in open research reviews.",
+      "Design, test and productionise predictive models for systematic strategies. You'll own ideas end-to-end - from hypothesis to live monitoring - and defend them in open research reviews.",
     skills: ["probability & statistics", "Python", "ML fundamentals", "intellectual honesty"],
   },
   {
@@ -312,7 +312,7 @@ export const ROLES: Role[] = [
     team: "Technology",
     location: "Mumbai",
     blurb:
-      "Own the data layer that everything else depends on — ingestion, validation, versioning and point-in-time correctness across market and alternative datasets.",
+      "Own the data layer that everything else depends on - ingestion, validation, versioning and point-in-time correctness across market and alternative datasets.",
     skills: ["Python", "SQL", "data pipelines", "attention to detail"],
   },
   {
@@ -332,7 +332,7 @@ export const ROLES: Role[] = [
     team: "Research / Technology",
     location: "Mumbai",
     blurb:
-      "Build and productionise the machine-learning stack behind our signals — training pipelines, feature stores, LLM tooling and model monitoring. Research-grade ideas, engineering-grade reliability.",
+      "Build and productionise the machine-learning stack behind our signals - training pipelines, feature stores, LLM tooling and model monitoring. Research-grade ideas, engineering-grade reliability.",
     skills: ["PyTorch", "deep learning", "LLM pipelines", "MLOps", "Python"],
   },
 ];
@@ -340,11 +340,11 @@ export const ROLES: Role[] = [
 export const GAMES = {
   heading: "Games & Puzzles",
   intro:
-    "This is the loudest part of our culture — and the sharpest part of our hiring. Games force honest decisions under uncertainty, with scoreboards you can't argue with. We play constantly, and we hire people who light up at a good puzzle.",
+    "This is the loudest part of our culture - and the sharpest part of our hiring. Games force honest decisions under uncertainty, with scoreboards you can't argue with. We play constantly, and we hire people who light up at a good puzzle.",
   items: [
     {
       icon: "♠",
-      title: "Poker night — every Thursday",
+      title: "Poker night - every Thursday",
       body: "Expected value, bet sizing, reading incomplete information. The desk ledger tracks lifetime EV, not lifetime luck.",
     },
     {
@@ -355,7 +355,7 @@ export const GAMES = {
     {
       icon: "🎲",
       title: "The market-making game",
-      body: "Quote a two-sided market on anything — dice sums, jellybeans, cricket scores — while the desk trades against you. Our favourite interview game, and Friday's favourite pastime.",
+      body: "Quote a two-sided market on anything - dice sums, jellybeans, cricket scores - while the desk trades against you. Our favourite interview game, and Friday's favourite pastime.",
     },
     {
       icon: "∞",
@@ -373,7 +373,7 @@ export const GAMES = {
       body: "An annual all-day puzzle hunt across Lower Parel, plus two internal hackathons a year. Some production tooling started as a weekend hack.",
     },
   ],
-  note: "Bring your favourite game to an interview. Genuinely — we'll play.",
+  note: "Bring your favourite game to an interview. Genuinely - we'll play.",
 };
 
 export type Puzzle = {
@@ -410,20 +410,20 @@ export const PUZZLES: Puzzle[] = [
       "Equally likely higher or lower",
     ],
     answer: 2,
-    why: "Volatility drag: (1.01)(0.99) = 0.9999 < 1, so the median path drifts down even though the mean is flat. Compounding is not symmetric — a core reason risk management exists.",
+    why: "Volatility drag: (1.01)(0.99) = 0.9999 < 1, so the median path drifts down even though the mean is flat. Compounding is not symmetric - a core reason risk management exists.",
   },
   {
-    q: "A crash detector fires on 90% of crash days and false-fires on 10% of normal days. Crashes happen 1% of days. It just fired — what's the chance of a crash?",
+    q: "A crash detector fires on 90% of crash days and false-fires on 10% of normal days. Crashes happen 1% of days. It just fired - what's the chance of a crash?",
     options: ["≈ 90%", "≈ 50%", "≈ 8%", "≈ 1%"],
     answer: 2,
-    why: "Bayes: true alarms ≈ 0.9 × 1% = 0.9%; false alarms ≈ 10% × 99% = 9.9%. So P(crash | alarm) ≈ 0.9 / 10.8 ≈ 8%. Base rates humble every signal — never trust an alert without them.",
+    why: "Bayes: true alarms ≈ 0.9 × 1% = 0.9%; false alarms ≈ 10% × 99% = 9.9%. So P(crash | alarm) ≈ 0.9 / 10.8 ≈ 8%. Base rates humble every signal - never trust an alert without them.",
   },
 ];
 
 export const PERKS = [
-  { icon: "♟", title: "Games culture", body: "Poker nights, chess ladder, strategy-game tournaments and an actual games room — because decision training should be fun." },
+  { icon: "♟", title: "Games culture", body: "Poker nights, chess ladder, strategy-game tournaments and an actual games room - because decision training should be fun." },
   { icon: "📚", title: "Learning budget", body: "Books, courses and conferences funded, plus internal seminars where anyone can teach anything." },
-  { icon: "🌐", title: "Global markets exposure", body: "Work across asset classes and geographies from day one — small firm, wide canvas." },
+  { icon: "🌐", title: "Global markets exposure", body: "Work across asset classes and geographies from day one - small firm, wide canvas." },
   { icon: "🤝", title: "Flat by design", body: "One open desk. The best argument wins, regardless of whose it is." },
   { icon: "⚡", title: "Serious tooling", body: "Research clusters, quality data and fast iteration loops. We don't make smart people wait on slow machines." },
   { icon: "🩺", title: "Health & food", body: "Comprehensive insurance, a stocked kitchen, and proper coffee within arm's reach of every desk." },
@@ -433,12 +433,12 @@ export const HIRING_STEPS = [
   {
     n: "01",
     title: "Application",
-    body: "A CV and a few short answers. No cover-letter theatre — we read for evidence of curiosity and rigour.",
+    body: "A CV and a few short answers. No cover-letter theatre - we read for evidence of curiosity and rigour.",
   },
   {
     n: "02",
     title: "Games & puzzles",
-    body: "Probability puzzles, market games and brainteasers — done live, so we can see how you think, not just what you memorised.",
+    body: "Probability puzzles, market games and brainteasers - done live, so we can see how you think, not just what you memorised.",
   },
   {
     n: "03",
@@ -448,6 +448,6 @@ export const HIRING_STEPS = [
   {
     n: "04",
     title: "Desk visit & offer",
-    body: "Spend time with the team, ask us anything, then decide. We move fast when we're excited — and we tell you either way.",
+    body: "Spend time with the team, ask us anything, then decide. We move fast when we're excited - and we tell you either way.",
   },
 ];

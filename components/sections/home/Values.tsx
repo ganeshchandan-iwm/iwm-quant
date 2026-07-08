@@ -2,7 +2,7 @@ import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { VALUES } from "@/lib/content";
 
-/** Team character & attitude — the human traits behind the models. */
+/** Team character & attitude - the human traits behind the models. */
 export default function Values() {
   return (
     <section className="border-b border-edge-soft bg-panel-2/40">

@@ -8,7 +8,7 @@ export default function Pillars() {
       <SectionHeading
         kicker="what we do"
         title="Three disciplines. One system."
-        sub="Every anomaly is an opportunity — we just know where to look."
+        sub="Every anomaly is an opportunity - we just know where to look."
       />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {PILLARS.map((p, i) => (
