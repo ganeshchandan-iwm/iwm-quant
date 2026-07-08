@@ -32,7 +32,11 @@ export const metadata: Metadata = {
 };
 
 // Applies the saved (or system-preferred) theme before first paint — no flash.
-const themeBootScript = `(function(){try{var t=localStorage.getItem("iwm-theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches)){document.documentElement.classList.add("dark")}}catch(e){}})()`;
+// Dark mode is disabled for now — force light regardless of stored/system pref.
+// To re-enable: restore the commented body below (system-pref + localStorage) and
+// un-hide the ThemeToggle buttons in components/layout/Nav.tsx.
+const themeBootScript = `(function(){try{document.documentElement.classList.remove("dark")}catch(e){}})()`;
+// const themeBootScript = `(function(){try{var t=localStorage.getItem("iwm-theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches)){document.documentElement.classList.add("dark")}}catch(e){}})()`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { OFFICE_ADDRESS } from "@/lib/content";
+import { OFFICE_ADDRESS, HR_EMAIL } from "@/lib/content";
 
 export default function Footer() {
   return (
@@ -46,6 +46,12 @@ export default function Footer() {
             <br />
             {OFFICE_ADDRESS.country}
           </address>
+          <a
+            href={`mailto:${HR_EMAIL}`}
+            className="mt-3 inline-block text-mut transition-colors hover:text-primary"
+          >
+            {HR_EMAIL}
+          </a>
         </div>
       </div>
 

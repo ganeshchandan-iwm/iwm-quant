@@ -4,7 +4,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import DecryptText from "@/components/ui/DecryptText";
 import RoleCard from "@/components/sections/careers/RoleCard";
 import GamesPuzzles from "@/components/sections/careers/GamesPuzzles";
-import { ROLES, PERKS, HIRING_STEPS } from "@/lib/content";
+import { ROLES, PERKS, HIRING_STEPS, HR_EMAIL } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -41,13 +41,26 @@ export default function CareersPage() {
           title="Where do you fit?"
           sub="Every role sits on one open desk in Lower Parel, Mumbai — research, technology and trading side by side."
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           {ROLES.map((role, i) => (
             <Reveal key={role.id} delay={(i % 3) * 130}>
               <RoleCard role={role} />
             </Reveal>
           ))}
         </div>
+
+        <Reveal className="mb-24">
+          <p className="rounded-lg border border-dashed border-edge bg-panel/60 px-5 py-4 text-center font-mono text-sm text-mut">
+            Don&apos;t see your role? Convince us we need it — write to{" "}
+            <a
+              href={`mailto:${HR_EMAIL}`}
+              className="text-primary underline-offset-4 hover:underline"
+            >
+              {HR_EMAIL}
+            </a>{" "}
+            with your CV and the puzzle you&apos;re proudest of solving.
+          </p>
+        </Reveal>
 
         {/* games & puzzles — the highlight */}
         <GamesPuzzles />

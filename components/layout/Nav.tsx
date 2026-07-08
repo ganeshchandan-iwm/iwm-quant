@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import ThemeToggle from "@/components/ui/ThemeToggle";
+// dark mode disabled for now — import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const LINKS = [
   { href: "/", label: "home" },
@@ -25,7 +25,7 @@ export default function Nav() {
             <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-60 [animation:ping-dot_1.8s_cubic-bezier(0,0,0.2,1)_infinite]" />
             <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
           </span>
-          <span className="font-mono font-bold tracking-tight text-fg">
+          <span id="nav-logo" className="font-mono font-bold tracking-tight text-fg">
             <span className="text-3xl">IWM</span> QUANT
           </span>
           <span className="hidden md:inline font-mono text-[10px] text-mut/70 border border-edge-soft rounded px-1.5 py-0.5 group-hover:border-primary/40 transition-colors">
@@ -59,12 +59,12 @@ export default function Nav() {
           >
             join us
           </Link>
-          <ThemeToggle className="ml-2" />
+          {/* dark mode disabled for now — <ThemeToggle className="ml-2" /> */}
         </div>
 
         {/* mobile toggle */}
         <div className="md:hidden flex items-center gap-1">
-          <ThemeToggle />
+          {/* dark mode disabled for now — <ThemeToggle /> */}
           <button
             className="font-mono text-primary text-xl px-2"
             onClick={() => setOpen((v) => !v)}

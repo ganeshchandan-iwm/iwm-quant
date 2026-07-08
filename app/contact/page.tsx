@@ -3,7 +3,7 @@ import Reveal from "@/components/ui/Reveal";
 import DecryptText from "@/components/ui/DecryptText";
 import ContactForm from "@/components/sections/contact/ContactForm";
 import LatencyPing from "@/components/interactive/LatencyPing";
-import { OFFICE_ADDRESS } from "@/lib/content";
+import { OFFICE_ADDRESS, HR_EMAIL } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -63,6 +63,17 @@ export default function ContactPage() {
                     {OFFICE_ADDRESS.country}
                   </span>
                 </address>
+                <div className="mt-4 border-t border-edge-soft pt-4 font-mono text-sm">
+                  <p className="text-xs uppercase tracking-widest text-mut mb-1">
+                    careers &amp; applications
+                  </p>
+                  <a
+                    href={`mailto:${HR_EMAIL}`}
+                    className="text-primary transition-colors hover:text-primary-dim"
+                  >
+                    {HR_EMAIL}
+                  </a>
+                </div>
               </div>
             </Reveal>
 

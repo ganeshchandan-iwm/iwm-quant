@@ -1,3 +1,5 @@
+export const HR_EMAIL = "hr@iwmquant.com";
+
 export const OFFICE_ADDRESS = {
   line1: "1502, One Lodha Place",
   line2: "Lower Parel",

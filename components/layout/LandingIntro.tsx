@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const BOOT_LINES = [
   "> IWM QUANT SECURE SHELL v2026.07",
@@ -12,18 +12,41 @@ const BOOT_LINES = [
 
 // ASCII-only so the mono logo never changes width mid-scramble
 const GLYPHS = "01$#%&@<>{}[]|/\\+=*-";
-const LOGO = "IWM·QUANT";
+const LOGO = "IWM QUANT";
+
+const SPLIT_AT = 2450; // vault doors start opening, logo takes flight
+const FLIGHT_MS = 700; // matches the vault doors' slide duration
+const CROSSFADE_MS = 200; // flying logo melts into the real nav logo
+const DONE_AT = SPLIT_AT + FLIGHT_MS + CROSSFADE_MS + 50;
+
+type Box = { top: number; left: number; width: number; height: number };
+
+function restoreNavLogo() {
+  const navLogo = document.getElementById("nav-logo");
+  if (!navLogo) return;
+  navLogo.style.transition = "";
+  navLogo.style.opacity = "";
+}
 
 /**
  * Unique landing animation: a full-screen terminal boot sequence that types
  * authentication lines, scramble-resolves the logo, then splits open like a
- * vault door to reveal the site. Plays once per session; click/Esc skips it.
+ * vault door. As the doors open, the logo detaches from the console and
+ * flies — in real measured screen coordinates — into the navbar, landing
+ * exactly on top of the real nav logo and crossfading into it. Plays once
+ * per session; click/Esc skips it.
  */
 export default function LandingIntro() {
   const [phase, setPhase] = useState<"hidden" | "boot" | "split" | "done">("hidden");
   const [lineCount, setLineCount] = useState(0);
   const [logo, setLogo] = useState("");
   const [progress, setProgress] = useState(0);
+  const [flightBox, setFlightBox] = useState<Box | null>(null);
+  const [flyTransform, setFlyTransform] = useState("translate(0, 0) scale(1)");
+  const [landed, setLanded] = useState(false);
+  const [handoff, setHandoff] = useState(false);
+
+  const logoRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -35,6 +58,9 @@ export default function LandingIntro() {
     sessionStorage.setItem("iwm-intro-seen", "1");
     setPhase("boot");
     document.body.style.overflow = "hidden";
+
+    const navLogo = document.getElementById("nav-logo");
+    if (navLogo) navLogo.style.opacity = "0";
 
     const timers: ReturnType<typeof setTimeout>[] = [];
     let raf = 0;
@@ -72,19 +98,63 @@ export default function LandingIntro() {
       }, 1000)
     );
 
-    // 4) split open and hand over to the page
-    timers.push(setTimeout(() => setPhase("split"), 2450));
+    // 4) vault doors open + logo takes flight toward the navbar
+    timers.push(
+      setTimeout(() => {
+        const from = logoRef.current?.getBoundingClientRect();
+        const to = document.getElementById("nav-logo")?.getBoundingClientRect();
+
+        if (from && to) {
+          const scale = to.height / from.height;
+          const dx = to.left + to.width / 2 - (from.left + from.width / 2);
+          const dy = to.top + to.height / 2 - (from.top + from.height / 2);
+
+          setFlightBox({ top: from.top, left: from.left, width: from.width, height: from.height });
+          setFlyTransform("translate(0, 0) scale(1)");
+
+          // two rAFs: let the browser paint the "from" state once before
+          // animating to the target, otherwise React may batch both and
+          // the transition never runs
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              setFlyTransform(`translate(${dx}px, ${dy}px) scale(${scale})`);
+              setLanded(true);
+            });
+          });
+        } else if (navLogo) {
+          navLogo.style.opacity = "1";
+        }
+
+        setPhase("split");
+      }, SPLIT_AT)
+    );
+
+    // 5) crossfade: the flying logo melts into the real nav logo
+    timers.push(
+      setTimeout(() => {
+        const navLogoEl = document.getElementById("nav-logo");
+        if (navLogoEl) {
+          navLogoEl.style.transition = `opacity ${CROSSFADE_MS}ms ease-out`;
+          navLogoEl.style.opacity = "1";
+        }
+        setHandoff(true);
+      }, SPLIT_AT + FLIGHT_MS)
+    );
+
+    // 6) hand over to the page
     timers.push(
       setTimeout(() => {
         setPhase("done");
         document.body.style.overflow = "";
-      }, 3250)
+        restoreNavLogo();
+      }, DONE_AT)
     );
 
     return () => {
       timers.forEach(clearTimeout);
       cancelAnimationFrame(raf);
       document.body.style.overflow = "";
+      restoreNavLogo();
     };
   }, []);
 
@@ -93,6 +163,7 @@ export default function LandingIntro() {
     const skip = () => {
       setPhase("done");
       document.body.style.overflow = "";
+      restoreNavLogo();
     };
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && skip();
     window.addEventListener("keydown", onKey);
@@ -109,18 +180,30 @@ export default function LandingIntro() {
       onClick={() => {
         setPhase("done");
         document.body.style.overflow = "";
+        restoreNavLogo();
       }}
       role="presentation"
       aria-hidden
     >
-      {/* two vault halves */}
+      {/* two vault halves. They slide apart AND dissolve: the opacity fade is
+          delayed so the dark panels stay solid as they start moving (the vault
+          feel), then melt to transparent as they clear — turning the hard
+          dark→light edge into a soft cross-dissolve into the (light) page. */}
       <div
-        className="absolute inset-x-0 top-0 h-1/2 bg-ink border-b border-sky/40 transition-transform duration-700 ease-in-out"
-        style={{ transform: splitting ? "translateY(-100%)" : "translateY(0)" }}
+        className="absolute inset-x-0 top-0 h-1/2 bg-ink border-b border-sky/30"
+        style={{
+          transform: splitting ? "translateY(-100%)" : "translateY(0)",
+          opacity: splitting ? 0 : 1,
+          transition: `transform ${FLIGHT_MS}ms ease-in-out, opacity 520ms ease-in 180ms`,
+        }}
       />
       <div
-        className="absolute inset-x-0 bottom-0 h-1/2 bg-ink border-t border-sky/40 transition-transform duration-700 ease-in-out"
-        style={{ transform: splitting ? "translateY(100%)" : "translateY(0)" }}
+        className="absolute inset-x-0 bottom-0 h-1/2 bg-ink border-t border-sky/30"
+        style={{
+          transform: splitting ? "translateY(100%)" : "translateY(0)",
+          opacity: splitting ? 0 : 1,
+          transition: `transform ${FLIGHT_MS}ms ease-in-out, opacity 520ms ease-in 180ms`,
+        }}
       />
 
       {/* boot console */}
@@ -128,7 +211,11 @@ export default function LandingIntro() {
         className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-6 transition-opacity duration-300"
         style={{ opacity: splitting ? 0 : 1 }}
       >
-        <p className="font-mono text-3xl md:text-5xl font-bold tracking-[0.2em] text-sky min-h-[1.2em]">
+        <p
+          ref={logoRef}
+          className="font-mono text-3xl md:text-5xl font-bold tracking-[0.2em] text-sky min-h-[1.2em]"
+          style={{ visibility: flightBox ? "hidden" : "visible" }}
+        >
           {logo || " "}
         </p>
 
@@ -157,6 +244,41 @@ export default function LandingIntro() {
 
         <p className="font-mono text-[10px] text-sky/40">click anywhere to skip</p>
       </div>
+
+      {/* the flying logo: a measured clone that lands exactly on the real nav
+          logo. "QUANT" starts at the terminal's uniform size and shrinks to the
+          navbar's proportion (0.53x of "IWM") over the flight, so the handoff
+          into the smaller nav "QUANT" is seamless rather than a size snap. */}
+      {flightBox && (
+        <p
+          aria-hidden
+          className={`pointer-events-none fixed font-mono font-bold text-3xl md:text-5xl whitespace-nowrap ${
+            landed ? "text-fg tracking-tight" : "text-sky tracking-[0.2em]"
+          }`}
+          style={{
+            top: flightBox.top,
+            left: flightBox.left,
+            width: flightBox.width,
+            height: flightBox.height,
+            margin: 0,
+            textAlign: "center",
+            transform: flyTransform,
+            opacity: handoff ? 0 : 1,
+            transition: `transform ${FLIGHT_MS}ms cubic-bezier(0.65,0,0.35,1), color ${FLIGHT_MS}ms ease, letter-spacing ${FLIGHT_MS}ms ease, opacity ${CROSSFADE_MS}ms ease`,
+          }}
+        >
+          IWM{" "}
+          <span
+            style={{
+              display: "inline-block",
+              fontSize: landed ? "0.53em" : "1em",
+              transition: `font-size ${FLIGHT_MS}ms cubic-bezier(0.65,0,0.35,1)`,
+            }}
+          >
+            QUANT
+          </span>
+        </p>
+      )}
     </div>
   );
 }
