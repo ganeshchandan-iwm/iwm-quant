@@ -21,7 +21,7 @@ export default function CtaBanner() {
             href="/contact"
             className="group mt-8 inline-block rounded border border-primary/60 bg-primary/10 px-8 py-3.5 font-mono text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-xl hover:shadow-primary/25"
           >
-            open a channel{" "}
+            join us{" "}
             <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>

@@ -146,4 +146,4 @@ file to update the site.
 
 ---
 
-*IWM Quant — Detect. Decide. Dominate.*
+*IWM Quant — Detect. Decide. Deliver.*

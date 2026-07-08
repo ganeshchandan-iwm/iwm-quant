@@ -26,7 +26,7 @@ export default function Nav() {
             <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
           </span>
           <span className="font-mono font-bold tracking-tight text-fg">
-            IWM<span className="text-primary">·</span>QUANT
+            <span className="text-3xl">IWM</span> QUANT
           </span>
           <span className="hidden md:inline font-mono text-[10px] text-mut/70 border border-edge-soft rounded px-1.5 py-0.5 group-hover:border-primary/40 transition-colors">
             SYS ONLINE

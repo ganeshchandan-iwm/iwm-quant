@@ -15,7 +15,7 @@ export default function Footer() {
             Markets aren&apos;t random. They&apos;re just encrypted.
           </p>
           <p className="font-mono text-xs text-primary/70">
-            Detect. Decide. Dominate.
+            Detect. Decide. Deliver.
           </p>
         </div>
 

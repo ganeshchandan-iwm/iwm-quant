@@ -22,7 +22,7 @@ export default function ContactPage() {
             {"// contact"}
           </p>
           <h1 className="font-mono text-4xl md:text-6xl font-bold tracking-tight">
-            <DecryptText text="Open a channel." className="text-fg" />
+            <DecryptText text="Join us." className="text-fg" />
           </h1>
           <Reveal delay={300}>
             <p className="mt-6 text-mut text-lg leading-relaxed">
