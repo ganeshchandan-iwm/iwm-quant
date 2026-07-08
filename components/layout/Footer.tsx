@@ -51,7 +51,7 @@ export default function Footer() {
 
       <div className="border-t border-edge-soft">
         <div className="mx-auto max-w-7xl px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-2 font-mono text-[11px] text-mut/70">
-          <p>© {new Date().getFullYear()} I Wealth Management Quant. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} IWM Quant. All rights reserved.</p>
           <p>
             Trading involves risk. Nothing on this site is investment advice or an offer of
             securities.
