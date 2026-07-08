@@ -26,6 +26,7 @@ export default function AnomalySpotter() {
   const [result, setResult] = useState<Result | null>(null);
   const [score, setScore] = useState({ wins: 0, played: 0 });
   const [roundId, setRoundId] = useState(0);
+  const [started, setStarted] = useState(false);
 
   const nextRound = useCallback(() => {
     setResult(null);
@@ -33,6 +34,8 @@ export default function AnomalySpotter() {
   }, []);
 
   useEffect(() => {
+    // idle until the visitor explicitly starts a round
+    if (!started) return;
     const wrap = wrapRef.current;
     const canvas = canvasRef.current;
     if (!wrap || !canvas) return;
@@ -170,7 +173,7 @@ export default function AnomalySpotter() {
       canvas.removeEventListener("pointerdown", onDown);
     };
     // roundId in deps restarts the simulation for each round
-  }, [roundId]);
+  }, [roundId, started]);
 
   return (
     <div className="corner-frame rounded-lg border border-edge bg-panel overflow-hidden select-none">
@@ -184,18 +187,35 @@ export default function AnomalySpotter() {
       <div ref={wrapRef} className="relative">
         <canvas
           ref={canvasRef}
-          className={`block w-full ${result ? "cursor-default" : "cursor-crosshair"}`}
+          className={`block w-full ${result || !started ? "cursor-default" : "cursor-crosshair"}`}
           style={{ height: H }}
         />
-        {!result && (
+        {started && !result && (
           <p className="pointer-events-none absolute left-4 top-3 font-mono text-[11px] text-mut/80">
             watching a calm market… click the instant the regime breaks
           </p>
         )}
+        {/* idle: armed only when the visitor asks for it */}
+        {!started && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-panel/60 backdrop-blur-[2px]">
+            <p className="max-w-sm px-6 text-center font-mono text-xs leading-relaxed text-mut">
+              A price feed will stream calmly — until, at a random moment, the regime
+              breaks. Click the chart the instant you spot it. Too early counts as a
+              false alarm.
+            </p>
+            <button
+              onClick={() => setStarted(true)}
+              className="rounded border border-primary/60 bg-primary/10 px-6 py-2.5 font-mono text-sm text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/20"
+            >
+              ▶ start the feed
+            </button>
+          </div>
+        )}
       </div>
 
       <div className="border-t border-edge-soft bg-panel-2/70 px-4 py-3 font-mono text-xs space-y-2">
-        {!result && <p className="text-mut/90">the break is coming. patience — false alarms count against you.</p>}
+        {!started && <p className="text-mut/90">the monitor is idle — start the feed when you&apos;re ready.</p>}
+        {started && !result && <p className="text-mut/90">the break is coming. patience — false alarms count against you.</p>}
         {result?.kind === "false-alarm" && (
           <p className="text-amber">
             {"> false alarm — nothing had changed yet. noise fooled you (it fools everyone)."}

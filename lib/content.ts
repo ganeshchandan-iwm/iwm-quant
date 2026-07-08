@@ -22,10 +22,11 @@ export const ABOUT = {
   heading: "A research firm that happens to trade",
   paragraphs: [
     "IWM Quant — I Wealth Management Quant — is a proprietary quantitative trading and research firm based in Mumbai. We apply the scientific method to financial markets: form a hypothesis, test it honestly against data, and only then let it near capital.",
-    "Our edge doesn't come from secrets or speed alone. It comes from a culture that treats every market question as a puzzle worth solving properly — with statistics, software, and healthy scepticism about our own ideas.",
-    "We are deliberately small and deeply collaborative. Researchers, developers and traders sit at one desk, argue about assumptions in the open, and share ownership of every strategy that goes live.",
+    "Proprietary trading and research are two sides of one coin here, and the same rigour extends to the client-focused mandates we manage. Our edge isn't secrets or speed alone — it's cutting-edge technology, from HFT-grade infrastructure to deep data handling, in the hands of people who treat every market question as a puzzle worth solving properly.",
+    "The desk is a deliberate mix of the best of technology and the best of people: traders, researchers and technologists sitting together — game theorists, data scientists and minds trained in maths, physics and computer science, arguing about assumptions in the open and sharing ownership of every strategy that goes live.",
+    "And we scale like the tortoise, not the hare — patient, compounding, honest about capacity. Staying in the game and getting a little better every day beats any single spectacular bet.",
   ],
-  chips: ["Research-driven", "Technology-first", "Risk-obsessed", "Collaborative by design"],
+  chips: ["Research-driven", "Technology-first", "Risk-obsessed", "Interdisciplinary desk", "Patient by design"],
 };
 
 export const PILLARS = [
@@ -36,7 +37,7 @@ export const PILLARS = [
   },
   {
     title: "Trading Technology",
-    body: "Our researchers and engineers build the full stack in-house: data pipelines, simulation environments, risk systems and execution infrastructure designed to be fast, measured and reliable.",
+    body: "Our researchers and engineers build the full stack in-house: data pipelines, simulation environments, risk systems and low-latency, HFT-grade execution — designed to be fast, measured and reliable.",
     icon: "λ",
   },
   {
@@ -49,7 +50,7 @@ export const PILLARS = [
 export const CULTURE = {
   heading: "We take games seriously",
   intro:
-    "Great trading decisions are made under uncertainty, with incomplete information and real stakes. That's exactly what good games teach. Game-playing isn't a perk at IWM Quant — it's part of how we train judgment.",
+    "We treat the market itself as the ultimate game — the sum of everyone's knowledge and behaviour — and a puzzle we solve because it is genuinely fun. Great trading decisions are made under uncertainty, with incomplete information and real stakes; that is exactly what good games teach. Game-playing isn't a perk at IWM Quant — it's part of how we train judgment.",
   cards: [
     {
       icon: "♠",
@@ -70,6 +71,44 @@ export const CULTURE = {
       icon: "⚙",
       title: "Hackathons & puzzle hunts",
       body: "Two internal hackathons a year and a standing puzzle ladder. Some of our production tooling started life as a weekend hack.",
+    },
+  ],
+};
+
+export const VALUES = {
+  heading: "The kind of people we are",
+  intro:
+    "Models and machines do a lot of the work here, but judgment is still human. These are the traits we hire for, defend in each other, and try to live up to every day.",
+  items: [
+    {
+      icon: "⬢",
+      title: "Team over individual",
+      body: "The best argument wins, not the loudest ego. Every strategy is shared work, and credit is a team sport.",
+    },
+    {
+      icon: "△",
+      title: "Grit — never say die",
+      body: "Markets humble everyone. We break hard problems with persistence, not bravado, and come back to the idea that just failed.",
+    },
+    {
+      icon: "◇",
+      title: "Character & integrity",
+      body: "We do the honest thing when no one is watching — with each other, with clients, and with our own results.",
+    },
+    {
+      icon: "○",
+      title: "Good judgment",
+      body: "Judgment is character applied under uncertainty: weigh the evidence, size the risk, own the call.",
+    },
+    {
+      icon: "◎",
+      title: "Led by conscience",
+      body: "We back people who listen to and follow their conscience — because the fastest way to lose trust is to trade it away.",
+    },
+    {
+      icon: "✦",
+      title: "Open-minded & positive",
+      body: "Curious, flexible and good to be around. Strong opinions loosely held, and a level head when the screens turn red.",
     },
   ],
 };
