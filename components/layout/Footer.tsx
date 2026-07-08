@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LogoMark from "@/components/ui/LogoMark";
 import { OFFICE_ADDRESS, HR_EMAIL } from "@/lib/content";
 
 export default function Footer() {
@@ -7,9 +8,12 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 md:px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* brand */}
         <div className="md:col-span-2 space-y-3">
-          <p className="font-mono font-bold text-fg">
-            IWM<span className="text-primary">·</span>QUANT
-          </p>
+          <div className="flex items-center gap-3">
+            <LogoMark className="h-7 w-auto text-fg" />
+            <p className="font-mono font-bold text-fg">
+              <span className="text-xl">IWM</span> QUANT
+            </p>
+          </div>
           <p className="text-mut text-sm leading-relaxed max-w-sm">
             I Wealth Management Quant — a systematic trading and research firm.
             Markets aren&apos;t random. They&apos;re just encrypted.
