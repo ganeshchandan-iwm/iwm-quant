@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- IWM bar-mark favicon: dark-navy tile, mark in cream (brand bg colour).
+       Same geometry as components/ui/LogoMark.tsx, centred + scaled to fill. -->
+  <rect width="100" height="100" rx="20" fill="#0d2144" />
+  <g transform="translate(26.35 10) scale(3.94)" fill="#f5f8fc">
+    <!-- cap tick over the W -->
+    <rect x="4.25" y="0" width="3.5" height="2.5" />
+    <!-- I -->
+    <rect x="0" y="9.5" width="2" height="9" />
+    <!-- W (tallest) -->
+    <rect x="5" y="3.5" width="2" height="15" />
+    <!-- M -->
+    <rect x="10" y="7" width="2" height="11.5" />
+    <!-- baseline rule -->
+    <rect x="-1" y="19.5" width="14" height="0.8" />
+  </g>
+</svg>
