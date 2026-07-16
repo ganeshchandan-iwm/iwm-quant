@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight } from "@/components/ui/icons";
 import type { Role } from "@/lib/content";
 
 const TYPE_STYLES: Record<Role["type"], string> = {
@@ -42,7 +43,7 @@ export default function RoleCard({ role }: { role: Role }) {
       >
         apply for this role{" "}
         <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-          →
+          <ArrowRight />
         </span>
       </Link>
     </article>

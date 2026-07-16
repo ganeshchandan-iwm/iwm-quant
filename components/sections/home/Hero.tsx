@@ -2,6 +2,7 @@ import Link from "next/link";
 import DecryptText from "@/components/ui/DecryptText";
 import CandleWell from "@/components/market/CandleWell";
 import Reveal from "@/components/ui/Reveal";
+import { ArrowRight } from "@/components/ui/icons";
 
 export default function Hero() {
   return (
@@ -32,7 +33,7 @@ export default function Hero() {
             >
               explore our approach{" "}
               <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-                →
+                <ArrowRight />
               </span>
             </Link>
             <Link

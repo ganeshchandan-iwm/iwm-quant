@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowLeft } from "@/components/ui/icons";
 
 export default function NotFound() {
   return (
@@ -14,9 +15,10 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="inline-block rounded border border-primary/60 bg-primary/10 px-6 py-3 font-mono text-primary transition-all duration-300 hover:bg-primary hover:text-white"
+          className="group inline-flex items-center gap-2 rounded border border-primary/60 bg-primary/10 px-6 py-3 font-mono text-primary transition-all duration-300 hover:bg-primary hover:text-white"
         >
-          ← return to base
+          <ArrowLeft className="transition-transform duration-300 group-hover:-translate-x-1" />
+          return to base
         </Link>
       </div>
     </div>

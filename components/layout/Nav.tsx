@@ -27,7 +27,9 @@ export default function Nav() {
             <span className="text-3xl">IWM</span> QUANT
           </span>
           <span className="hidden md:inline font-mono text-[10px] text-mut/70 border border-edge-soft rounded px-1.5 py-0.5 group-hover:border-primary/40 transition-colors">
-            SYS ONLINE
+            <span className="glitch" data-text="SYS ONLINE">
+              SYS ONLINE
+            </span>
           </span>
         </Link>
 

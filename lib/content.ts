@@ -21,10 +21,8 @@ export const TERMINAL_LINES = [
 export const ABOUT = {
   heading: "A research firm that happens to trade",
   paragraphs: [
-    "IWM Quant - I Wealth Management Quant - is a proprietary quantitative trading and research firm based in Mumbai. We apply the scientific method to financial markets: form a hypothesis, test it honestly against data, and only then let it near capital.",
-    "Proprietary trading and research are two sides of one coin here, and the same rigour extends to the client-focused mandates we manage. Our edge isn't secrets or speed alone - it's cutting-edge technology, from HFT-grade infrastructure to deep data handling, in the hands of people who treat every market question as a puzzle worth solving properly.",
-    "The desk is a deliberate mix of the best of technology and the best of people: traders, researchers and technologists sitting together - game theorists, data scientists and minds trained in maths, physics and computer science, arguing about assumptions in the open and sharing ownership of every strategy that goes live.",
-    "And we scale like the tortoise, not the hare - patient, compounding, honest about capacity. Staying in the game and getting a little better every day beats any single spectacular bet.",
+    "IWM Quant is a proprietary quantitative trading and research firm based in Mumbai. We form a hypothesis, test it honestly against data, and only then let it near capital - the same rigour whether the mandate is our own book or a client's.",
+    "The desk mixes the best of technology and the best of people: HFT-grade infrastructure built by traders, researchers and technologists sitting together, arguing about assumptions in the open. We scale like the tortoise, not the hare - patient, compounding, honest about capacity.",
   ],
   chips: ["Research-driven", "Technology-first", "Risk-obsessed", "Interdisciplinary desk", "Patient by design"],
 };
@@ -420,13 +418,15 @@ export const PUZZLES: Puzzle[] = [
   },
 ];
 
-export const PERKS = [
-  { icon: "♟", title: "Games culture", body: "Poker nights, chess ladder, strategy-game tournaments and an actual games room - because decision training should be fun." },
-  { icon: "📚", title: "Learning budget", body: "Books, courses and conferences funded, plus internal seminars where anyone can teach anything." },
-  { icon: "🌐", title: "Global markets exposure", body: "Work across asset classes and geographies from day one - small firm, wide canvas." },
-  { icon: "🤝", title: "Flat by design", body: "One open desk. The best argument wins, regardless of whose it is." },
-  { icon: "⚡", title: "Serious tooling", body: "Research clusters, quality data and fast iteration loops. We don't make smart people wait on slow machines." },
-  { icon: "🩺", title: "Health & food", body: "Comprehensive insurance, a stocked kitchen, and proper coffee within arm's reach of every desk." },
+export type PerkIconKey = "games" | "learning" | "global" | "flat" | "tooling" | "health";
+
+export const PERKS: { icon: PerkIconKey; title: string; body: string }[] = [
+  { icon: "games", title: "Games culture", body: "Poker nights, chess ladder, strategy-game tournaments and an actual games room - because decision training should be fun." },
+  { icon: "learning", title: "Learning budget", body: "Books, courses and conferences funded, plus internal seminars where anyone can teach anything." },
+  { icon: "global", title: "Global markets exposure", body: "Work across asset classes and geographies from day one - small firm, wide canvas." },
+  { icon: "flat", title: "Flat by design", body: "One open desk. The best argument wins, regardless of whose it is." },
+  { icon: "tooling", title: "Serious tooling", body: "Research clusters, quality data and fast iteration loops. We don't make smart people wait on slow machines." },
+  { icon: "health", title: "Health & food", body: "Comprehensive insurance, a stocked kitchen, and proper coffee within arm's reach of every desk." },
 ];
 
 export const HIRING_STEPS = [

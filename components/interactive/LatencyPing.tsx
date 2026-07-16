@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { Refresh } from "@/components/ui/icons";
 
 /**
  * Latency ping - measures the visitor's real round-trip to this site's
@@ -67,7 +68,7 @@ export default function LatencyPing() {
         disabled={running}
         className="mt-3 rounded border border-primary/50 bg-primary/5 px-4 py-2 font-mono text-xs text-primary transition-all duration-300 hover:bg-primary hover:text-white disabled:opacity-50"
       >
-        ping again ↺
+        <span className="inline-flex items-center gap-1.5">ping again <Refresh /></span>
       </button>
     </div>
   );

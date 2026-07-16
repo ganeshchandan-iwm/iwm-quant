@@ -1,3 +1,4 @@
+import { ArrowRight } from "@/components/ui/icons";
 import type { RESEARCH } from "@/lib/content";
 
 type Paper = (typeof RESEARCH)[number];
@@ -39,7 +40,7 @@ export default function ResearchCard({ paper }: { paper: Paper }) {
       <p className="mt-5 font-mono text-xs text-mut/70 group-hover:text-primary transition-colors">
         abstract only · full paper on request{" "}
         <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-          →
+          <ArrowRight />
         </span>
       </p>
     </article>

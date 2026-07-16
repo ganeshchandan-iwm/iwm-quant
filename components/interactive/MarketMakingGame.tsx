@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState } from "react";
 import DiceTray from "@/components/interactive/DiceTray";
+import { ArrowRight, Refresh } from "@/components/ui/icons";
 
 /**
  * The market-making game from our interviews, playable: quote a two-sided
@@ -155,7 +156,13 @@ export default function MarketMakingGame() {
             disabled={rolling}
             className="rounded border border-sky/40 bg-sky/10 px-5 py-2 font-mono text-sm text-sky transition-all duration-300 hover:bg-sky hover:text-ink disabled:opacity-50"
           >
-            {rolling ? "dice in the air…" : done ? "play again ↺" : "send quote & roll →"}
+            {rolling ? (
+              "dice in the air…"
+            ) : done ? (
+              <span className="inline-flex items-center gap-1.5">play again <Refresh /></span>
+            ) : (
+              <span className="inline-flex items-center gap-1.5">send quote &amp; roll <ArrowRight /></span>
+            )}
           </button>
         </div>
 

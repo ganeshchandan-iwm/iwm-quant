@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
+import { ArrowRight } from "@/components/ui/icons";
 
 export default function CtaBanner() {
   return (
@@ -23,7 +24,7 @@ export default function CtaBanner() {
           >
             join us{" "}
             <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-              →
+              <ArrowRight />
             </span>
           </Link>
         </div>

@@ -97,12 +97,6 @@ export default function ContactPage() {
               <LatencyPing />
             </Reveal> */}
 
-            <Reveal delay={600}>
-              <div className="rounded-lg border border-edge-soft bg-panel/50 p-6 font-mono text-xs text-mut leading-relaxed">
-                <span className="text-primary">i</span> Your details are stored securely and
-                used only to respond to your enquiry. We never share contact data.
-              </div>
-            </Reveal>
           </div>
         </div>
       </div>

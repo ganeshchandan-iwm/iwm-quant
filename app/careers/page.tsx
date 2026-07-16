@@ -4,7 +4,17 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import DecryptText from "@/components/ui/DecryptText";
 import RoleCard from "@/components/sections/careers/RoleCard";
 import GamesPuzzles from "@/components/sections/careers/GamesPuzzles";
-import { ROLES, PERKS, HIRING_STEPS, HR_EMAIL } from "@/lib/content";
+import { ArrowRight, Dice, BookOpen, Globe, Scale, Zap, HeartPulse } from "@/components/ui/icons";
+import { ROLES, PERKS, HIRING_STEPS, HR_EMAIL, type PerkIconKey } from "@/lib/content";
+
+const PERK_ICONS: Record<PerkIconKey, typeof Dice> = {
+  games: Dice,
+  learning: BookOpen,
+  global: Globe,
+  flat: Scale,
+  tooling: Zap,
+  health: HeartPulse,
+};
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -72,19 +82,22 @@ export default function CareersPage() {
           sub="The desk runs on curiosity, coffee and competition - here's what that looks like day to day."
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-24">
-          {PERKS.map((p, i) => (
-            <Reveal key={p.title} delay={(i % 3) * 110}>
-              <div className="group h-full rounded-lg border border-edge bg-panel p-6 transition-all duration-500 hover:border-cyan/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan/10">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-cyan/25 bg-cyan/5 text-lg transition-transform duration-500 group-hover:scale-110">
-                  {p.icon}
-                </span>
-                <h3 className="mt-3 font-mono text-base font-semibold text-fg group-hover:text-cyan transition-colors">
-                  {p.title}
-                </h3>
-                <p className="mt-2 text-sm text-mut leading-relaxed">{p.body}</p>
-              </div>
-            </Reveal>
-          ))}
+          {PERKS.map((p, i) => {
+            const Icon = PERK_ICONS[p.icon];
+            return (
+              <Reveal key={p.title} delay={(i % 3) * 110}>
+                <div className="group h-full rounded-lg border border-edge bg-panel p-6 transition-all duration-500 hover:border-cyan/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan/10">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-cyan/25 bg-cyan/5 text-lg text-cyan transition-transform duration-500 group-hover:scale-110">
+                    <Icon />
+                  </span>
+                  <h3 className="mt-3 font-mono text-base font-semibold text-fg group-hover:text-cyan transition-colors">
+                    {p.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-mut leading-relaxed">{p.body}</p>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
 
         {/* hiring process */}
@@ -103,8 +116,8 @@ export default function CareersPage() {
                 <h3 className="mt-3 font-mono text-lg font-semibold text-fg">{s.title}</h3>
                 <p className="mt-2 text-sm text-mut leading-relaxed">{s.body}</p>
                 {i < HIRING_STEPS.length - 1 && (
-                  <span className="hidden md:block absolute top-1/2 -right-4 text-primary/50 font-mono animate-glow-pulse">
-                    →
+                  <span className="hidden md:block absolute top-1/2 -right-4 text-primary/50 animate-glow-pulse">
+                    <ArrowRight />
                   </span>
                 )}
               </div>

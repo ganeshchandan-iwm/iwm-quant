@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import { ArrowRight } from "@/components/ui/icons";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -135,7 +136,7 @@ export default function ContactForm() {
           <span>
             transmit message{" "}
             <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-              →
+              <ArrowRight />
             </span>
           </span>
         )}

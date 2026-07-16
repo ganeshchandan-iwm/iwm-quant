@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { ArrowRight } from "@/components/ui/icons";
 
 /**
  * Random walk vs. market - two unlabeled charts. One is a pure coin-flip
@@ -151,7 +152,7 @@ export default function WalkOrMarket() {
               onClick={newRound}
               className="rounded border border-primary/50 bg-primary/5 px-4 py-2 font-mono text-xs text-primary transition-all duration-300 hover:bg-primary hover:text-white"
             >
-              next round →
+              <span className="inline-flex items-center gap-1.5">next round <ArrowRight /></span>
             </button>
           </div>
         )}

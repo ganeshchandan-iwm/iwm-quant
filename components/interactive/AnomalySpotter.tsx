@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { ArrowRight } from "@/components/ui/icons";
 
 /**
  * Anomaly spotter - a price series streams calmly until, at a random
@@ -237,7 +238,7 @@ export default function AnomalySpotter() {
             onClick={nextRound}
             className="rounded border border-primary/50 bg-primary/5 px-4 py-2 text-primary transition-all duration-300 hover:bg-primary hover:text-white"
           >
-            next round →
+            <span className="inline-flex items-center gap-1.5">next round <ArrowRight /></span>
           </button>
         )}
       </div>

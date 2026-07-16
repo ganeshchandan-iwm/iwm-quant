@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { ArrowRight } from "@/components/ui/icons";
 import { ROLES } from "@/lib/content";
 
 export default function CareersTeaser() {
@@ -37,7 +38,7 @@ export default function CareersTeaser() {
         >
           see open roles{" "}
           <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-            →
+            <ArrowRight />
           </span>
         </Link>
       </Reveal>

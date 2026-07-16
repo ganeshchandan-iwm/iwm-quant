@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ArrowRight } from "@/components/ui/icons";
 import { PUZZLES } from "@/lib/content";
 
 /**
@@ -86,7 +87,7 @@ export default function PuzzleBox() {
               onClick={next}
               className="rounded border border-sky/40 bg-sky/10 px-4 py-2 font-mono text-xs text-sky transition-all duration-300 hover:bg-sky hover:text-ink"
             >
-              next puzzle →
+              <span className="inline-flex items-center gap-1.5">next puzzle <ArrowRight /></span>
             </button>
           </div>
         )}

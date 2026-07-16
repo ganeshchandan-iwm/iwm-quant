@@ -13,7 +13,7 @@
   --color-amber: #d97706;
   --color-down: #dc2626;
   --color-fg: #0d2144;
-  --color-mut: #52698a;
+  --color-mut: #1a1a1a;
 
   /* dark navy "ink" used for terminal panels & the landing intro */
   --color-ink: #081830;
@@ -73,6 +73,74 @@ body {
   width: 0;
   height: 0;
   display: none; /* Chrome, Safari, Edge */
+}
+
+/* ---------- glitch text (e.g. "SYS ONLINE" badge) ---------- */
+/* Idle most of the time; two short RGB-split + skew glitch bursts per 5s
+   cycle (~every 2-3s) so it reads as "alive" without being distracting.
+   Element needs a `data-text` attribute matching its own text content. */
+.glitch {
+  position: relative;
+  display: inline-block;
+  animation: glitch-skew 5s infinite linear;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.glitch::before {
+  color: var(--color-cyan);
+  clip-path: inset(0 0 55% 0);
+  opacity: 0;
+  animation: glitch-1 5s infinite linear;
+}
+.glitch::after {
+  color: var(--color-down);
+  clip-path: inset(55% 0 0 0);
+  opacity: 0;
+  animation: glitch-2 5s infinite linear;
+}
+@keyframes glitch-skew {
+  0%, 43%, 49%, 90%, 100% { transform: translate(0, 0) skewX(0); filter: none; }
+  44% { transform: translate(-1px, 0) skewX(-4deg); filter: brightness(1.4); }
+  45% { transform: translate(1px, 0) skewX(3deg); }
+  46% { transform: translate(-1px, 1px) skewX(-2deg); filter: brightness(0.8); }
+  47% { transform: translate(1px, -1px) skewX(2deg); filter: brightness(1.4); }
+  48% { transform: translate(0, 0) skewX(0); }
+  91% { transform: translate(1px, 0) skewX(3deg); filter: brightness(1.4); }
+  92% { transform: translate(-1px, 1px) skewX(-3deg); }
+  93% { transform: translate(1px, -1px) skewX(2deg); filter: brightness(0.8); }
+  94% { transform: translate(-1px, 0) skewX(-2deg); filter: brightness(1.4); }
+  95% { transform: translate(0, 0) skewX(0); }
+}
+@keyframes glitch-1 {
+  0%, 43%, 49%, 90%, 100% { transform: translate(0, 0); opacity: 0; }
+  44% { transform: translate(-3px, -2px); opacity: 0.9; }
+  45% { transform: translate(3px, 2px); opacity: 0.9; }
+  46% { transform: translate(-2px, 1px); opacity: 0.7; }
+  47% { transform: translate(2px, -1px); opacity: 0.9; }
+  48% { transform: translate(-1px, 0); opacity: 0.6; }
+  91% { transform: translate(3px, 1px); opacity: 0.9; }
+  92% { transform: translate(-3px, -1px); opacity: 0.9; }
+  93% { transform: translate(2px, -2px); opacity: 0.7; }
+  94% { transform: translate(-2px, 2px); opacity: 0.9; }
+  95% { transform: translate(1px, 0); opacity: 0.6; }
+}
+@keyframes glitch-2 {
+  0%, 43%, 49%, 90%, 100% { transform: translate(0, 0); opacity: 0; }
+  44% { transform: translate(3px, 2px); opacity: 0.9; }
+  45% { transform: translate(-3px, -2px); opacity: 0.9; }
+  46% { transform: translate(2px, -1px); opacity: 0.7; }
+  47% { transform: translate(-2px, 1px); opacity: 0.9; }
+  48% { transform: translate(1px, 0); opacity: 0.6; }
+  91% { transform: translate(-3px, -1px); opacity: 0.9; }
+  92% { transform: translate(3px, 1px); opacity: 0.9; }
+  93% { transform: translate(-2px, 2px); opacity: 0.7; }
+  94% { transform: translate(2px, -2px); opacity: 0.9; }
+  95% { transform: translate(-1px, 0); opacity: 0.6; }
 }
 
 /* ---------- background grid ---------- */

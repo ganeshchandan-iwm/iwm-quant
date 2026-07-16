@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { ArrowRight } from "@/components/ui/icons";
 import { CULTURE } from "@/lib/content";
 
 /** Gaming-culture section: decision-making under uncertainty, trained by play. */
@@ -37,7 +38,7 @@ export default function Culture() {
           >
             ♟ explore games &amp; puzzles - try one yourself{" "}
             <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-              →
+              <ArrowRight />
             </span>
           </Link>
         </Reveal>
