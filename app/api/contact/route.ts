@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { saveContact, listContacts } from "@/lib/db";
+import { notifyAll } from "@/lib/notify";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[0-9+\-\s()]{7,20}$/;
@@ -36,6 +37,19 @@ export async function POST(req: Request) {
 
   try {
     const id = await saveContact({ name, email, phone: phone || undefined, company: company || undefined, message });
+
+    // Best-effort HR email + Google Sheet row. Awaited deliberately: on
+    // serverless the function can be frozen the moment we respond, so a
+    // fire-and-forget promise would often never run. notifyAll swallows and
+    // logs its own failures, so this can't break the success response.
+    await notifyAll({
+      name,
+      email,
+      phone: phone || undefined,
+      company: company || undefined,
+      message,
+    });
+
     return NextResponse.json({ ok: true, id }, { status: 201 });
   } catch (err) {
     console.error("Error saving contact:", err);

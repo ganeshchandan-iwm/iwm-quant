@@ -20,8 +20,11 @@
   --color-ink-2: #0d2347;
   --color-sky: #8db6ff;
 
-  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Site-wide typeface: Roboto. Both tokens point at it (rather than a
+     real monospace font) so every existing font-mono/font-sans utility
+     across the codebase renders the same sans-serif face. */
+  --font-mono: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* ---------- dark mode ---------- */

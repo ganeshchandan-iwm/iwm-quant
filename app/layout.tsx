@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import LandingIntro from "@/components/layout/LandingIntro";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" });
+// Single site-wide typeface. Both --font-mono and --font-sans (see
+// globals.css) point at this, so every existing `font-mono`/`font-sans`
+// Tailwind utility across the codebase renders Roboto - no per-component
+// changes needed.
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-roboto",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://iwmquant.com"),
@@ -40,11 +47,7 @@ const themeBootScript = `(function(){try{document.documentElement.classList.remo
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${jetbrains.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={roboto.variable} suppressHydrationWarning>
       <body className="antialiased min-h-screen flex flex-col">
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <LandingIntro />
